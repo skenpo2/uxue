@@ -49,7 +49,8 @@ export default function ParticleNetwork() {
           number: {
             density: {
               enable: true,
-              area: 800,
+              width: 800, // Replaced 'area' with 'width'
+              height: 800, // Added 'height'
             },
             value: 80, // High density for visibility
           },
