@@ -3,6 +3,7 @@ import Section from '@/components/Section';
 import PageHeader from '@/components/PageHeader';
 import ProjectCard from '@/components/ProjectCard';
 import CTASection from '@/components/CTASection';
+import GallerySection from '@/components/GallerySection';
 
 export const metadata: Metadata = {
   title: 'Projects',
@@ -76,6 +77,8 @@ export default function ProjectsPage() {
           ))}
         </div>
       </Section>
+
+      <GallerySection />
 
       <Section className="py-24 bg-gray-50">
         <div className="max-w-3xl mx-auto text-center">

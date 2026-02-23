@@ -9,7 +9,7 @@ export default function PhilosophySection() {
         {/* IMAGE CONTAINER */}
         <div className="relative h-[600px] w-full bg-slate-100 order-last md:order-first group overflow-hidden">
           <Image
-            src="/images/focus.jpg"
+            src="/images/power.jpg"
             alt="Uxue Field Engineering"
             fill
             className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
