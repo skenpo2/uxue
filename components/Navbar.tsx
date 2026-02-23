@@ -48,13 +48,13 @@ export default function Navbar() {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 h-20 bg-white border-b border-slate-200 z-50">
+    <nav className="fixed top-0 left-0 right-0 h-20 bg-white border-b border-slate-200 z-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex justify-between items-center h-full">
           {/* LOGO */}
           <Link
             href="/"
-            className="relative flex items-center h-full w-24"
+            className="relative flex items-center h-full w-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded"
             onClick={() => setIsMenuOpen(false)}
           >
             <Image
@@ -78,16 +78,16 @@ export default function Navbar() {
             {/* SERVICES DROPDOWN */}
             <div className="relative group h-full flex items-center">
               <button
-                className={`flex items-center gap-1 text-sm font-bold uppercase tracking-wide transition-colors
+                className={`flex items-center gap-1 text-sm font-bold uppercase tracking-wide transition-colors focus:outline-none
                 ${
                   pathname.startsWith('/services')
                     ? 'text-blue-700'
-                    : 'text-slate-600 group-hover:text-blue-700'
+                    : 'text-slate-600 group-hover:text-orange-600'
                 }`}
               >
                 Services
                 <svg
-                  className="w-3 h-3 transition-transform duration-200 group-hover:-rotate-180"
+                  className="w-3 h-3 transition-transform duration-200 group-hover:-rotate-180 group-hover:text-orange-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -103,15 +103,16 @@ export default function Navbar() {
 
               {/* Dropdown Content */}
               <div className="absolute top-full left-1/2 -translate-x-1/2 w-72 bg-white border border-slate-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0">
-                <div className="absolute top-0 left-0 w-full h-[3px] bg-blue-700"></div>
+                {/* Accent bar changed to orange to draw the eye */}
+                <div className="absolute top-0 left-0 w-full h-[3px] bg-orange-500"></div>
                 <div className="py-2">
                   {services.map((service) => (
                     <Link
                       key={service.href}
                       href={service.href}
-                      className="block px-6 py-4 hover:bg-slate-50 border-b border-slate-50 last:border-0 group/item"
+                      className="block px-6 py-4 hover:bg-slate-50 border-b border-slate-50 last:border-0 group/item focus:bg-slate-50 outline-none"
                     >
-                      <div className="text-sm font-bold text-slate-900 group-hover/item:text-blue-700 uppercase tracking-wide">
+                      <div className="text-sm font-bold text-slate-900 group-hover/item:text-orange-600 uppercase tracking-wide transition-colors">
                         {service.name}
                       </div>
                       <div className="text-xs text-slate-500 mt-1 font-mono">
@@ -129,7 +130,7 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className="ml-4 px-6 py-2.5 bg-slate-900 text-white text-xs font-bold uppercase tracking-widest hover:bg-blue-700 transition-colors"
+              className="ml-4 px-6 py-2.5 bg-slate-900 text-white text-xs font-bold uppercase tracking-widest hover:bg-orange-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-600 shadow-sm"
             >
               Contact
             </Link>
@@ -137,7 +138,7 @@ export default function Navbar() {
 
           {/* MOBILE TOGGLE BUTTON */}
           <button
-            className="lg:hidden p-2 text-slate-900 hover:text-blue-700 transition-colors"
+            className="lg:hidden p-2 text-slate-900 hover:text-orange-600 transition-colors focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle Menu"
           >
@@ -187,7 +188,7 @@ export default function Navbar() {
 
             {/* Mobile Services Section */}
             <div className="py-2">
-              <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 border-b border-slate-100 pb-2">
+              <div className="text-xs font-bold text-orange-500 uppercase tracking-widest mb-4 border-b border-slate-100 pb-2">
                 Our Services
               </div>
               <div className="space-y-4 pl-2">
@@ -195,11 +196,10 @@ export default function Navbar() {
                   <Link
                     key={s.href}
                     href={s.href}
-                    // This onClick handles the closing, so we don't need the useEffect
                     onClick={() => setIsMenuOpen(false)}
                     className="block group"
                   >
-                    <div className="text-lg font-bold text-slate-800 group-hover:text-blue-700">
+                    <div className="text-lg font-bold text-slate-800 group-hover:text-orange-600 transition-colors">
                       {s.name}
                     </div>
                     <div className="text-xs text-slate-500 font-mono">
@@ -218,7 +218,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="block w-full text-center py-4 bg-slate-900 text-white font-bold uppercase tracking-widest text-sm hover:bg-blue-700 transition-colors"
+                className="block w-full text-center py-4 bg-slate-900 text-white font-bold uppercase tracking-widest text-sm hover:bg-orange-600 transition-colors shadow-sm"
               >
                 Contact Us
               </Link>
@@ -243,11 +243,11 @@ function NavLink({
   return (
     <Link
       href={href}
-      className={`text-sm font-bold uppercase tracking-wide transition-colors relative py-2
-            ${active ? 'text-blue-700' : 'text-slate-600 hover:text-slate-900'}
+      className={`text-sm font-bold uppercase tracking-wide transition-colors relative py-2 focus:outline-none
+            ${active ? 'text-blue-700' : 'text-slate-600 hover:text-orange-600'}
             ${
               active
-                ? 'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-blue-700'
+                ? 'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-orange-500'
                 : ''
             }`}
     >
@@ -269,7 +269,7 @@ function MobileLink({
     <Link
       href={href}
       onClick={onClick}
-      className="text-[20px] font-bold text-slate-900 tracking-tight hover:text-blue-700 block"
+      className="text-[20px] font-bold text-slate-900 tracking-tight hover:text-orange-600 transition-colors block focus:outline-none"
     >
       {children}
     </Link>

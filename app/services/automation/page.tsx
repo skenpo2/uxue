@@ -38,80 +38,119 @@ export default function AutomationPage() {
     },
   ];
 
+  const integrations = [
+    {
+      title: 'System Integration',
+      desc: 'Connect CCTV, access control, alarms, fire systems, and building automation into single management platforms.',
+    },
+    {
+      title: 'Event Correlation',
+      desc: 'Automated analysis of events across multiple systems to identify patterns and potential threats.',
+    },
+    {
+      title: 'Automated Response',
+      desc: 'Trigger predefined actions based on specific events, reducing manual intervention and response times.',
+    },
+    {
+      title: 'Reporting and Analytics',
+      desc: 'Comprehensive reporting on security events, system performance, and operational metrics.',
+    },
+  ];
+
   return (
-    <>
+    <div className="bg-white">
       <PageHeader
         title="Security Automation & Smart Technologies"
         description="Intelligent systems enhancing security operations and response capabilities"
       />
 
+      {/* 1. MAIN AUTOMATION OVERVIEW */}
       <Section className="py-24">
-        <div className="max-w-3xl mb-16">
-          <h2 className="mb-6">Automation That Responds</h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Security automation reduces response times, eliminates manual
-            processes, and provides security teams with actionable intelligence.
-            Our integrated systems connect surveillance, access control, alarms,
-            and environmental sensors into unified platforms that monitor
-            continuously, alert instantly, and enable rapid response to security
-            events.
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-12 gap-12">
+          {/* Section Introduction */}
+          <div className="lg:col-span-4">
+            <div className="sticky top-24">
+              <div className="h-1 w-12 bg-orange-500 mb-6"></div>
+              <h2 className="text-3xl font-bold text-slate-900 mb-6 tracking-tight">
+                Automation That Responds
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                Security automation reduces response times, eliminates manual
+                processes, and provides security teams with actionable
+                intelligence.
+              </p>
+              <p className="text-lg text-slate-600 leading-relaxed">
+                Our integrated systems connect surveillance, access control,
+                alarms, and environmental sensors into unified platforms that
+                monitor continuously, alert instantly, and enable rapid response
+                to security events.
+              </p>
+            </div>
+          </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {solutions.map((solution, index) => (
-            <div key={index} className="border border-gray-200 p-8">
-              <h3 className="mb-4">{solution.name}</h3>
-              <p className="text-gray-600 leading-relaxed">
-                {solution.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section className="py-24 bg-gray-50">
-        <div className="max-w-3xl">
-          <h2 className="mb-6">Integration Capabilities</h2>
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-            Our automation platforms integrate with existing security
-            infrastructure and business systems to create comprehensive
-            monitoring and response capabilities.
-          </p>
-          <div className="space-y-6">
-            <div>
-              <h4 className="mb-2 text-gray-900">System Integration</h4>
-              <p className="text-gray-600 leading-relaxed">
-                Connect CCTV, access control, alarms, fire systems, and building
-                automation into single management platforms.
-              </p>
-            </div>
-            <div>
-              <h4 className="mb-2 text-gray-900">Event Correlation</h4>
-              <p className="text-gray-600 leading-relaxed">
-                Automated analysis of events across multiple systems to identify
-                patterns and potential threats.
-              </p>
-            </div>
-            <div>
-              <h4 className="mb-2 text-gray-900">Automated Response</h4>
-              <p className="text-gray-600 leading-relaxed">
-                Trigger predefined actions based on specific events, reducing
-                manual intervention and response times.
-              </p>
-            </div>
-            <div>
-              <h4 className="mb-2 text-gray-900">Reporting and Analytics</h4>
-              <p className="text-gray-600 leading-relaxed">
-                Comprehensive reporting on security events, system performance,
-                and operational metrics.
-              </p>
+          {/* Solutions Grid */}
+          <div className="lg:col-span-8">
+            <div className="grid sm:grid-cols-2 gap-6">
+              {solutions.map((solution, index) => (
+                <div
+                  key={index}
+                  className="bg-slate-50 border border-slate-200 p-8 hover:border-blue-200 transition-colors"
+                >
+                  {/* Simple structural icon/accent */}
+                  <div className="w-10 h-10 bg-white border border-slate-200 flex items-center justify-center mb-6">
+                    <div className="w-3 h-3 bg-blue-600"></div>
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">
+                    {solution.name}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    {solution.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </Section>
 
+      {/* 2. INTEGRATION CAPABILITIES (Dark Corporate Segment) */}
+      <Section className="py-24 bg-slate-900 border-t border-slate-800">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-white mb-4 tracking-tight">
+              Integration Capabilities
+            </h2>
+            <div className="h-1 w-12 bg-blue-600 mx-auto mb-6"></div>
+            <p className="text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto font-light">
+              Our automation platforms integrate seamlessly with existing
+              security infrastructure and business systems to create
+              comprehensive monitoring and response ecosystems.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {integrations.map((item, index) => (
+              <div
+                key={index}
+                className="flex gap-6 p-6 border border-slate-700 bg-slate-800/50"
+              >
+                <div className="flex-shrink-0 mt-1">
+                  {/* Using Orange for action-oriented integration features */}
+                  <div className="w-2 h-2 bg-orange-500 rounded-sm"></div>
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-white mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-slate-400 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       <CTASection />
-    </>
+    </div>
   );
 }
