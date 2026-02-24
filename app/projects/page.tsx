@@ -86,7 +86,6 @@ export default function ProjectsPage() {
         </div>
       </div>
 
-      {/* 2. THE EDITORIAL PROJECT GRID */}
       <Section className="py-24">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
           {projects.map((project, index) => (
@@ -94,7 +93,6 @@ export default function ProjectsPage() {
               key={project.id}
               className={`group cursor-pointer ${index === 0 ? 'md:col-span-2' : ''}`}
             >
-              {/* Image Container */}
               <div
                 className={`relative overflow-hidden bg-slate-100 mb-6 ${index === 0 ? 'h-[500px]' : 'h-[350px]'}`}
               >
@@ -107,18 +105,9 @@ export default function ProjectsPage() {
                   priority={index === 0}
                 />
 
-                {/* Category Badge - Anchored to Top Right */}
-                <div className="absolute top-6 right-6 z-10">
-                  <span className="bg-slate-950 text-white text-[10px] font-bold px-3 py-1.5 uppercase tracking-widest shadow-lg border-l-2 border-orange-500">
-                    {project.category}
-                  </span>
-                </div>
-
-                {/* Subtle dark overlay that fades out on hover */}
                 <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
               </div>
 
-              {/* Text Content */}
               <div className="max-w-3xl">
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-xs font-mono font-bold text-slate-400">
@@ -144,10 +133,8 @@ export default function ProjectsPage() {
         </div>
       </Section>
 
-      {/* 3. GALLERY INTEGRATION */}
       <GallerySection />
 
-      {/* 4. METHODOLOGY TIMELINE (Replaces generic centered boxes) */}
       <Section className="py-32 bg-slate-950 text-white border-t border-slate-900">
         <div className="max-w-4xl mb-20 border-l-[3px] border-blue-500 pl-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
@@ -161,7 +148,6 @@ export default function ProjectsPage() {
         </div>
 
         <div className="grid md:grid-cols-4 gap-8 relative">
-          {/* Background connecting line for desktop */}
           <div className="hidden md:block absolute top-6 left-0 w-full h-[1px] bg-slate-800"></div>
 
           {[

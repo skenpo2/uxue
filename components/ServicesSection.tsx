@@ -6,14 +6,14 @@ export default function ServicesSection() {
   const services = [
     {
       title: 'Advanced Security Systems',
-      slug: 'security-systems',
+      slug: 'physical-security',
       description:
         'IP-based surveillance, biometric access control, and AI-powered intrusion detection systems.',
       imageSrc: '/images/ict-camera.jpg',
     },
     {
       title: 'ICT Infrastructure',
-      slug: 'ict-infrastructure',
+      slug: 'networking',
       description:
         'Data center setup, fiber optic networks, GSM signal boosters, and robust structured cabling.',
       imageSrc:

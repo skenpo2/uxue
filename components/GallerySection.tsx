@@ -6,24 +6,34 @@ import Section from '@/components/Section';
 
 export default function GallerySection() {
   const galleryImages = [
-    { src: '/images/gallery/p1.png', alt: 'Server Rack Installation' },
     { src: '/images/gallery/p2.jpg', alt: 'Cabling Infrastructure' },
-    { src: '/images/gallery/p3.jpeg', alt: 'Control Room' },
-    { src: '/images/gallery/p4.jpg', alt: 'Biometric Access' },
     { src: '/images/gallery/p5.jpg', alt: 'CCTV Monitoring' },
+    { src: '/images/gallery/n8.jpg', alt: 'Project image' },
+
     { src: '/images/gallery/p6.jpg', alt: 'Network Switch' },
-    { src: '/images/gallery/p7.jpg', alt: 'Fiber Splicing' },
-    { src: '/images/gallery/p8.jpg', alt: 'Site Inspection' },
+    { src: '/images/gallery/n9.jpg', alt: 'Project image' },
+
     { src: '/images/gallery/p9.jpg', alt: 'Security Gate' },
+    { src: '/images/gallery/n11.jpg', alt: 'Access Control' },
+    { src: '/images/gallery/n13.jpg', alt: 'Project image' },
     { src: '/images/gallery/p10.jpg', alt: 'System Integration' },
     { src: '/images/gallery/p12.jpg', alt: 'Fire Alarm System' },
     { src: '/images/gallery/p13.jpg', alt: 'Data Center' },
-    { src: '/images/gallery/p14.jpg', alt: 'Structured Cabling' },
     { src: '/images/gallery/p15.jpg', alt: 'Maintenance' },
+    { src: '/images/gallery/n6.jpg', alt: 'Access Control' },
+
     { src: '/images/gallery/p16.jpg', alt: 'Remote Monitoring' },
+    { src: '/images/gallery/n7.jpg', alt: 'Access Control' },
+
     { src: '/images/gallery/p17.jpg', alt: 'Perimeter Defense' },
     { src: '/images/gallery/p18.jpg', alt: 'Smart Automation' },
     { src: '/images/gallery/p19.jpg', alt: 'Access Control' },
+    { src: '/images/gallery/n1.jpeg', alt: 'Project image' },
+    { src: '/images/gallery/n2.jpeg', alt: 'Access Control' },
+    { src: '/images/gallery/n3.jpg', alt: 'Project image' },
+    { src: '/images/gallery/n4.jpg', alt: 'Project image' },
+    { src: '/images/gallery/n5.jpg', alt: 'Project image' },
+    { src: '/images/gallery/n10.jpg', alt: 'Project image' },
   ];
 
   const [visibleCount, setVisibleCount] = useState(8);
@@ -56,7 +66,6 @@ export default function GallerySection() {
         </div>
       </Section>
 
-      {/* 2. THE GRID: Strict, Technical, High-Contrast */}
       <div className="w-full bg-slate-200">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-[2px]">
           {galleryImages.slice(0, visibleCount).map((item, index) => (
@@ -72,22 +81,12 @@ export default function GallerySection() {
                 sizes="(max-width: 768px) 50vw, 25vw"
               />
 
-              {/* Protective dark gradient on hover so the label pops */}
               <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-
-              {/* Technical ID Badge */}
-              <div className="absolute bottom-0 left-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 translate-y-2 group-hover:translate-y-0">
-                <span className="bg-slate-950 border-l-[3px] border-orange-500 text-white text-[10px] font-bold px-3 py-1.5 uppercase tracking-widest shadow-lg flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
-                  IMG-{String(index + 1).padStart(3, '0')}
-                </span>
-              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* 3. SYSTEM COMMAND (Load More Action) */}
       <div className="bg-white py-16 text-center flex justify-center border-t border-slate-200">
         {visibleCount < galleryImages.length ? (
           <button
@@ -120,7 +119,6 @@ export default function GallerySection() {
         )}
       </div>
 
-      {/* 4. DECORATIVE BAR */}
       <div className="h-1.5 w-full flex">
         <div className="h-full w-1/3 bg-slate-900"></div>
         <div className="h-full w-1/3 bg-orange-500"></div>

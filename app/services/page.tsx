@@ -74,8 +74,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="bg-white h-[90vh]">
-      {/* ENTERPRISE INTRO */}
+    <div className="bg-white min-h-screen">
       <div className="bg-slate-950 pt-32 pb-24 border-b border-slate-900 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
