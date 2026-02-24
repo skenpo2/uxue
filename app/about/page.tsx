@@ -10,19 +10,19 @@ export default function AboutPage() {
 
   const heroSlides = [
     {
-      src: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2000',
+      src: '/images/vr.jpg',
       alt: 'Enterprise Technology Infrastructure',
       title: 'TECHNOLOGY-FIRST INTEGRATION.',
       subtitle: 'Enterprise security and ICT solutions based in Kenya.',
     },
     {
-      src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000',
+      src: '/images/about-hero2.jpg',
       alt: 'Corporate Operations',
       title: 'SOLVING COMPLEX CHALLENGES.',
       subtitle: 'Modern security systems, smart networks, and cybersecurity.',
     },
     {
-      src: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=2000',
+      src: '/images/data-center.jpg',
       alt: 'Data Center Reliability',
       title: 'UNCOMPROMISING FOCUS.',
       subtitle:
@@ -72,8 +72,7 @@ export default function AboutPage() {
 
   return (
     <div className="bg-white">
-      {/* 1. THE SLIDING HERO (Scaled Down & Breathable) */}
-      <div className="relative h-[70vh] min-h-[500px] w-full bg-slate-950 overflow-hidden">
+      <div className="relative h-[90vh] min-h-[500px] w-full bg-slate-950 overflow-hidden">
         {heroSlides.map((slide, index) => (
           <div
             key={index}
@@ -90,27 +89,22 @@ export default function AboutPage() {
                 priority={index === 0}
               />
             </div>
-            {/* The Left-Anchored Gradient */}
             <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 md:via-slate-950/50 to-transparent"></div>
           </div>
         ))}
 
-        {/* Hero Content */}
         <div className="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
           <div className="max-w-2xl border-l-[3px] border-orange-500 pl-6 md:pl-8">
-            {/* Font size reduced from 6xl to 4xl/5xl for a sleeker look */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight leading-[1.1] [text-shadow:_0_4px_12px_rgb(0_0_0_/_80%)]">
               {heroSlides[currentSlide].title}
             </h1>
 
-            {/* Subtitle reduced to text-lg and kept to one line */}
             <p className="text-base md:text-lg text-slate-200 font-light leading-relaxed">
               {heroSlides[currentSlide].subtitle}
             </p>
           </div>
         </div>
 
-        {/* Slider Navigation Indicators */}
         <div className="absolute bottom-10 left-4 sm:left-6 lg:left-8 z-20 flex gap-6 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
           {heroSlides.map((_, idx) => (
             <button
@@ -130,7 +124,6 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* 2. COMPANY PROFILE (Full text restored here) */}
       <Section className="py-24 border-b border-slate-200">
         <div className="max-w-4xl">
           <div className="flex items-center gap-3 mb-6">
@@ -160,7 +153,6 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* 3. VISION & MISSION */}
       <div className="grid md:grid-cols-2">
         <div className="bg-slate-950 py-24 md:py-32 px-8 md:px-16 lg:px-24 flex flex-col justify-center">
           <div className="flex items-center gap-4 mb-8">
@@ -224,7 +216,6 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* 4. CORE VALUES */}
       <Section className="py-24 md:py-32 border-b border-slate-200">
         <div className="grid lg:grid-cols-12 gap-16">
           <div className="lg:col-span-4">
@@ -265,7 +256,6 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* 5. STRATEGIC ADVANTAGES */}
       <Section className="py-24 md:py-32 bg-slate-900 text-white">
         <div className="max-w-4xl mb-16 border-l-[3px] border-blue-500 pl-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">

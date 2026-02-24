@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Section from '@/components/Section';
-import PageHeader from '@/components/PageHeader';
 import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
-  title: 'Enterprise Networking & Connectivity',
+  title: 'Enterprise Networking',
   description:
-    'Structured cabling, fiber installation, LAN/WAN design, wireless networks, data center infrastructure.',
+    'Structured cabling, fiber installation, LAN/WAN design, wireless networks, and data center infrastructure.',
 };
 
 export default function NetworkingPage() {
@@ -16,74 +16,75 @@ export default function NetworkingPage() {
       desc: 'Cat6/Cat6A copper cabling and single/multi-mode fiber optic infrastructure.',
     },
     {
-      name: 'LAN, WAN & Wireless Solutions',
+      name: 'LAN, WAN & Wireless',
       desc: 'Enterprise-grade local and wide area network design with secure wireless coverage.',
     },
     {
       name: 'Server Rooms & Data Centers',
-      desc: 'Complete data center infrastructure including racks, cooling, and power distribution.',
+      desc: 'Complete infrastructure including racks, cooling, and power distribution.',
     },
     {
       name: 'Network Hardware',
-      desc: 'Enterprise routers, switches, firewalls, and load balancers with optimized configurations.',
-    },
-    {
-      name: 'VoIP Communication Systems',
-      desc: 'IP-based telephony solutions with call management and unified communications.',
-    },
-    {
-      name: 'Satellite Connectivity',
-      desc: 'High-speed satellite connectivity (Starlink) for remote locations and backup services.',
+      desc: 'Enterprise routers, switches, firewalls, and load balancers.',
     },
   ];
 
-  const designSteps = [
+  const steps = [
     {
       title: 'Requirements Analysis',
-      desc: 'Assessment of bandwidth requirements, user count, applications, and growth.',
+      desc: 'Assessment of bandwidth requirements and growth.',
     },
     {
       title: 'Architecture Design',
-      desc: 'Network topology design with redundancy planning, VLAN segmentation, and security zones.',
+      desc: 'Network topology design with redundancy planning.',
     },
     {
       title: 'Infrastructure Deployment',
-      desc: 'Professional installation of cabling, hardware mounting, and equipment configuration.',
+      desc: 'Installation of cabling, hardware, and configuration.',
     },
     {
       title: 'Testing & Certification',
-      desc: 'Comprehensive testing of all network segments with performance verification documentation.',
+      desc: 'Comprehensive testing and performance verification.',
     },
   ];
 
   return (
     <div className="bg-white">
-      <PageHeader
-        title="Enterprise Networking"
-        description="Reliable network infrastructure powering business operations"
-      />
-
-      {/* SOLUTIONS ASYMMETRIC GRID */}
-      <Section className="py-24 border-b border-slate-200">
-        <div className="grid lg:grid-cols-12 gap-12">
+      <Section className="pt-32 pb-24 border-b border-slate-200">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-4">
-            <div className="sticky top-24">
-              <div className="h-1 w-12 bg-orange-500 mb-6"></div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-6 tracking-tight">
-                Infrastructure That Performs
-              </h2>
-              <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                Modern businesses depend on reliable network infrastructure for
-                daily operations. We design and implement enterprise networks
-                built for performance, scalability, and resilience.
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-[2px] w-8 bg-blue-600"></div>
+                <span className="text-slate-500 font-bold tracking-[0.2em] uppercase text-xs">
+                  Infrastructure
+                </span>
+              </div>
+
+              <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-8 tracking-tight leading-[1.1]">
+                Enterprise Networking.
+              </h1>
+
+              <div className="border-l-[3px] border-orange-500 pl-5 mb-6">
+                <p className="text-lg text-slate-800 font-medium">
+                  Infrastructure That Performs
+                </p>
+              </div>
+
+              <p className="text-slate-600 leading-relaxed font-light">
+                Modern businesses depend on reliable network infrastructure. We
+                design and implement enterprise networks built to handle heavy
+                operational loads without interruption, designed for extreme
+                performance, scalability, and resilience.
               </p>
             </div>
           </div>
+
           <div className="lg:col-span-8 grid sm:grid-cols-2 gap-6">
             {solutions.map((solution, index) => (
               <div
                 key={index}
-                className="bg-slate-50 border border-slate-200 p-8"
+                className="bg-slate-50 border border-slate-200 p-8 hover:shadow-md transition-shadow"
               >
                 <div className="w-8 h-8 bg-blue-100 flex items-center justify-center mb-6">
                   <div className="w-2 h-2 bg-blue-600"></div>
@@ -100,24 +101,35 @@ export default function NetworkingPage() {
         </div>
       </Section>
 
-      {/* NETWORK DESIGN PROCESS */}
       <Section className="py-24 bg-slate-50">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 tracking-tight">
               Network Design Process
             </h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-600 font-light">
               A rigorous engineering approach to connectivity.
             </p>
           </div>
 
-          <div className="mb-16 bg-white p-4 border border-slate-200 shadow-sm"></div>
+          <div className="relative h-64 md:h-96 w-full border border-slate-300 bg-slate-950 shadow-md overflow-hidden group mb-16">
+            <Image
+              src="/images/top.jpg"
+              alt="Network Infrastructure Topology"
+              fill
+              className="object-cover opacity-60 mix-blend-luminosity group-hover:opacity-90 group-hover:mix-blend-normal transition-all duration-700"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none"></div>
+          </div>
 
           <div className="grid md:grid-cols-4 gap-8">
-            {designSteps.map((step, index) => (
-              <div key={index} className="relative">
-                <div className="text-4xl font-black text-slate-200 mb-4">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className="relative bg-white border border-slate-200 p-6 hover:border-blue-300 transition-colors"
+              >
+                <div className="text-4xl font-black text-slate-100 mb-4">
                   0{index + 1}
                 </div>
                 <h4 className="text-lg font-bold text-slate-900 mb-2">

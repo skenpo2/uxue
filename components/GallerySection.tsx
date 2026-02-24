@@ -5,10 +5,6 @@ import Image from 'next/image';
 import Section from '@/components/Section';
 
 export default function GallerySection() {
-  // ==========================================
-  // MANUAL CONFIGURATION
-  // Just change .jpg to .png where needed
-  // ==========================================
   const galleryImages = [
     { src: '/images/gallery/p1.png', alt: 'Server Rack Installation' },
     { src: '/images/gallery/p2.jpg', alt: 'Cabling Infrastructure' },
@@ -20,7 +16,6 @@ export default function GallerySection() {
     { src: '/images/gallery/p8.jpg', alt: 'Site Inspection' },
     { src: '/images/gallery/p9.jpg', alt: 'Security Gate' },
     { src: '/images/gallery/p10.jpg', alt: 'System Integration' },
-    // { src: '/images/gallery/p11.jpg', alt: 'Power Backup' },
     { src: '/images/gallery/p12.jpg', alt: 'Fire Alarm System' },
     { src: '/images/gallery/p13.jpg', alt: 'Data Center' },
     { src: '/images/gallery/p14.jpg', alt: 'Structured Cabling' },
@@ -29,8 +24,6 @@ export default function GallerySection() {
     { src: '/images/gallery/p17.jpg', alt: 'Perimeter Defense' },
     { src: '/images/gallery/p18.jpg', alt: 'Smart Automation' },
     { src: '/images/gallery/p19.jpg', alt: 'Access Control' },
-    // { src: '/images/gallery/p20.jpg', alt: 'Network Configuration' },
-    // { src: '/images/gallery/p21.jpg', alt: 'Final Commissioning' },
   ];
 
   const [visibleCount, setVisibleCount] = useState(8);
@@ -40,83 +33,98 @@ export default function GallerySection() {
   };
 
   return (
-    <div className="bg-white py-24 border-b border-slate-200">
+    <div className="bg-white pt-24 border-b border-slate-200">
+      {/* 1. HEADER SECTION */}
       <Section>
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12">
-          <div>
+        <div className="mb-16">
+          <div className="max-w-3xl border-l-[3px] border-orange-500 pl-6">
             <div className="flex items-center gap-3 mb-4">
               <div className="h-[2px] w-8 bg-blue-600"></div>
-              <span className="text-blue-600 font-bold tracking-[0.2em] uppercase text-xs">
+              <span className="text-slate-500 font-bold tracking-[0.2em] uppercase text-xs">
                 Project Portfolio
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
               FIELD OPERATIONS
             </h2>
+            <p className="mt-6 text-lg text-slate-600 font-light leading-relaxed">
+              A visual archive of our latest enterprise deployments,
+              infrastructure installations, and integrated security setups
+              across the region.
+            </p>
           </div>
         </div>
       </Section>
 
-      {/* THE GRID: Strict, Technical, High-Contrast */}
-      <div className="w-full bg-slate-100">
+      {/* 2. THE GRID: Strict, Technical, High-Contrast */}
+      <div className="w-full bg-slate-200">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-[2px]">
           {galleryImages.slice(0, visibleCount).map((item, index) => (
             <div
               key={index}
-              className="relative aspect-[4/3] bg-slate-200 group overflow-hidden"
+              className="relative aspect-[4/3] bg-slate-100 group overflow-hidden cursor-crosshair"
             >
               <Image
                 src={item.src}
                 alt={item.alt}
                 fill
-                // CHANGED: Removed 'grayscale' classes.
-                // Kept 'group-hover:scale-105' for the smooth zoom effect.
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 sizes="(max-width: 768px) 50vw, 25vw"
               />
 
-              {/* REMOVED: The blue overlay div. Now nothing obstructs the view. */}
+              {/* Protective dark gradient on hover so the label pops */}
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
-              {/* Image Label - Kept this, it looks professional */}
-              <div className="absolute bottom-0 left-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                <span className="bg-slate-900/90 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-widest backdrop-blur-sm">
+              {/* Technical ID Badge */}
+              <div className="absolute bottom-0 left-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 translate-y-2 group-hover:translate-y-0">
+                <span className="bg-slate-950 border-l-[3px] border-orange-500 text-white text-[10px] font-bold px-3 py-1.5 uppercase tracking-widest shadow-lg flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
                   IMG-{String(index + 1).padStart(3, '0')}
                 </span>
               </div>
-
-              {/* Optional: A very subtle dark gradient at the bottom so the label is always readable if the image is white */}
-              <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Footer / Load More Action */}
-      <div className="bg-slate-50 border-t border-slate-200 py-12 text-center">
+      {/* 3. SYSTEM COMMAND (Load More Action) */}
+      <div className="bg-white py-16 text-center flex justify-center border-t border-slate-200">
         {visibleCount < galleryImages.length ? (
           <button
             onClick={showMore}
-            className="inline-flex flex-col items-center group"
+            className="group flex items-center justify-between gap-6 px-8 py-4 border border-slate-300 bg-white hover:border-orange-500 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
           >
-            <span className="text-sm font-bold text-slate-900 uppercase tracking-widest group-hover:text-blue-700 transition-colors">
-              View Extended Gallery
+            <span className="text-xs font-bold text-slate-900 uppercase tracking-widest group-hover:text-orange-600 transition-colors">
+              Load Additional Assets
             </span>
-            <span className="mt-2 text-slate-400 group-hover:translate-y-1 transition-transform duration-300">
-              ↓
-            </span>
+            <svg
+              className="w-4 h-4 text-slate-400 group-hover:text-orange-600 transform group-hover:translate-y-1 transition-all"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="square"
+                strokeLinejoin="miter"
+                strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
           </button>
         ) : (
-          <div className="text-xs font-mono text-slate-400 uppercase tracking-widest">
-            End of Gallery Archive
+          <div className="flex items-center gap-4 text-xs font-mono text-slate-400 uppercase tracking-widest">
+            <div className="h-[1px] w-12 bg-slate-200"></div>
+            End of Archive
+            <div className="h-[1px] w-12 bg-slate-200"></div>
           </div>
         )}
       </div>
 
-      {/* Bottom Decorative Bar */}
-      <div className="h-2 w-full bg-slate-950 flex">
-        <div className="h-full w-1/4 bg-blue-600"></div>
-        <div className="h-full w-1/4 bg-slate-800"></div>
+      {/* 4. DECORATIVE BAR */}
+      <div className="h-1.5 w-full flex">
+        <div className="h-full w-1/3 bg-slate-900"></div>
+        <div className="h-full w-1/3 bg-orange-500"></div>
+        <div className="h-full w-1/3 bg-blue-600"></div>
       </div>
     </div>
   );

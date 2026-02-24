@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Section from '@/components/Section';
-import PageHeader from '@/components/PageHeader';
 import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
@@ -13,112 +12,140 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   const services = [
     {
-      title: 'Smart Physical Security & Surveillance',
+      title: 'Smart Physical Security',
       slug: 'physical-security',
       description:
-        'Comprehensive physical security infrastructure including AI-powered CCTV systems, access control, biometric authentication, intrusion detection, perimeter protection, and professional guard services.',
+        'Comprehensive physical security infrastructure including AI-powered CCTV systems, access control, biometric authentication, and perimeter protection.',
       capabilities: [
-        'AI-powered CCTV and surveillance systems',
-        'Access control and biometric solutions',
-        'Alarm and intrusion detection',
-        'Guard services and patrol monitoring',
-        'Perimeter protection and electric fencing',
-        'Security audits and risk assessments',
+        'AI CCTV & Surveillance',
+        'Biometric Access Control',
+        'Alarm & Intrusion Detection',
+        'Perimeter Defense Systems',
       ],
     },
     {
-      title: 'Enterprise Networking & Connectivity',
+      title: 'Enterprise Networking',
       slug: 'networking',
       description:
-        'Complete network infrastructure design and implementation for enterprise environments. From structured cabling to advanced routing and wireless systems.',
+        'Complete network infrastructure design and implementation. From structured cabling to advanced routing and wireless systems.',
       capabilities: [
-        'Structured cabling and fiber optic installation',
-        'LAN, WAN and wireless network design',
-        'Server rooms and data center infrastructure',
-        'Network hardware deployment and configuration',
-        'VoIP communication systems',
-        'Starlink satellite internet deployment',
+        'Structured Cabling & Fiber',
+        'LAN, WAN & Wireless',
+        'Data Center Infrastructure',
+        'Hardware Deployment',
       ],
     },
     {
-      title: 'Security Automation & Smart Technologies',
+      title: 'Security Automation',
       slug: 'automation',
       description:
         'Integrated automation systems that enhance security operations and provide real-time monitoring and control capabilities.',
       capabilities: [
-        'Smart access and visitor management',
-        'IoT monitoring dashboards',
-        'Automated gates and barrier systems',
-        'Remote monitoring platforms',
-        'Fire detection and response systems',
-        'Integrated security management platforms',
+        'Smart Visitor Management',
+        'IoT Dashboards',
+        'Automated Barrier Systems',
+        'Integrated Security Platforms',
       ],
     },
     {
-      title: 'ICT Equipment & Business Technology Supply',
+      title: 'ICT Equipment Supply',
       slug: 'ict-equipment',
       description:
         'Enterprise-grade technology procurement and supply services covering complete business technology requirements.',
       capabilities: [
-        'PCs, laptops and workstations',
-        'Servers and storage infrastructure',
-        'Projectors and conference equipment',
-        'Printers and peripherals',
-        'UPS and power backup systems',
-        'Networking hardware and software licensing',
+        'Enterprise Workstations',
+        'Server & Storage Infrastructure',
+        'Power Backup (UPS)',
+        'Networking Hardware',
       ],
     },
     {
-      title: 'Cybersecurity & Digital Protection',
+      title: 'Cybersecurity',
       slug: 'cybersecurity',
       description:
         'Advanced cybersecurity solutions protecting digital assets and ensuring business continuity against evolving threats.',
       capabilities: [
-        'Next-generation firewall deployment',
-        'Cloud security and configuration',
-        'Penetration testing and vulnerability assessment',
-        'Endpoint protection and management',
-        'Security monitoring and incident response',
-        'AI-based threat detection systems',
+        'Next-Gen Firewalls',
+        'Cloud Security',
+        'Penetration Testing',
+        'Endpoint Protection',
       ],
     },
   ];
 
   return (
-    <>
-      <PageHeader
-        title="Our Services"
-        description="Integrated security and technology solutions for enterprise operations"
-      />
+    <div className="bg-white h-[90vh]">
+      {/* ENTERPRISE INTRO */}
+      <div className="bg-slate-950 pt-32 pb-24 border-b border-slate-900 relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
+            backgroundSize: '32px 32px',
+          }}
+        ></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl border-l-[3px] border-orange-500 pl-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-[2px] w-8 bg-blue-500"></div>
+              <span className="text-blue-400 font-bold tracking-[0.2em] uppercase text-xs">
+                Core Competencies
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1]">
+              INTEGRATED <br />
+              <span className="text-slate-400">SOLUTIONS.</span>
+            </h1>
+            <p className="text-xl text-slate-300 font-light leading-relaxed max-w-2xl">
+              End-to-end security and technology integration for modern
+              enterprise environments.
+            </p>
+          </div>
+        </div>
+      </div>
 
       <Section className="py-24">
-        <div className="space-y-24">
+        <div className="space-y-16">
           {services.map((service, index) => (
             <div
               key={service.slug}
-              className={`grid md:grid-cols-2 gap-12 items-start ${
-                index !== 0 ? 'pt-24 border-t border-gray-200' : ''
-              }`}
+              className="grid lg:grid-cols-12 gap-12 items-start group"
             >
-              <div>
-                <h2 className="mb-4">{service.title}</h2>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              {/* Index Number */}
+              <div className="lg:col-span-1 hidden lg:block">
+                <div className="text-3xl font-mono text-slate-300 font-light group-hover:text-orange-500 transition-colors">
+                  0{index + 1}
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="lg:col-span-6 border-l-2 border-slate-100 pl-6 group-hover:border-blue-500 transition-colors">
+                <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 tracking-tight uppercase">
+                  {service.title}
+                </h2>
+                <p className="text-lg text-slate-600 mb-8 font-light leading-relaxed">
                   {service.description}
                 </p>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="inline-block px-8 py-4 bg-primary-800 text-white font-semibold hover:bg-primary-900 transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-widest hover:text-orange-600 transition-colors"
                 >
-                  Learn More
+                  View Specifications <span>&rarr;</span>
                 </Link>
               </div>
-              <div>
-                <h4 className="mb-4 text-gray-900">Capabilities</h4>
-                <ul className="space-y-3">
+
+              {/* Capabilities Grid */}
+              <div className="lg:col-span-5 bg-slate-50 border border-slate-200 p-8">
+                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">
+                  Key Capabilities
+                </h4>
+                <ul className="grid sm:grid-cols-2 gap-4">
                   {service.capabilities.map((capability, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <span className="text-primary-800 mr-3 mt-1">•</span>
-                      <span className="text-gray-600">{capability}</span>
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 bg-blue-600 rounded-sm mt-1.5 shrink-0"></span>
+                      <span className="text-slate-700 text-sm">
+                        {capability}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -129,6 +156,6 @@ export default function ServicesPage() {
       </Section>
 
       <CTASection />
-    </>
+    </div>
   );
 }

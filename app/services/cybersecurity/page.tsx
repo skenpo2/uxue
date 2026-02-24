@@ -1,181 +1,148 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Section from '@/components/Section';
-import PageHeader from '@/components/PageHeader';
 import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
-  title: 'Cybersecurity & Digital Protection',
+  title: 'Cybersecurity',
   description:
-    'Next-generation firewalls, penetration testing, vulnerability assessments, endpoint protection, and comprehensive cybersecurity solutions.',
+    'Next-generation firewalls, penetration testing, vulnerability assessments, and endpoint protection.',
 };
 
 export default function CybersecurityPage() {
   const solutions = [
     {
       name: 'Next-Generation Firewalls',
-      description:
-        'Advanced firewall solutions with deep packet inspection, intrusion prevention, and application-level filtering.',
+      desc: 'Deep packet inspection, intrusion prevention, and application-level filtering.',
     },
     {
-      name: 'Cloud Security and Configuration',
-      description:
-        'Secure cloud infrastructure setup, configuration hardening, and ongoing security monitoring for cloud environments.',
+      name: 'Cloud Security',
+      desc: 'Secure infrastructure setup, hardening, and ongoing monitoring for cloud environments.',
     },
     {
       name: 'Penetration Testing',
-      description:
-        'Authorized security assessments simulating real-world attacks to identify vulnerabilities before they can be exploited.',
-    },
-    {
-      name: 'Vulnerability Assessments',
-      description:
-        'Comprehensive scanning and analysis of systems, networks, and applications to identify security weaknesses.',
+      desc: 'Authorized assessments simulating real-world attacks to identify vulnerabilities.',
     },
     {
       name: 'Endpoint Protection',
-      description:
-        'Advanced endpoint security solutions protecting workstations, servers, and mobile devices from malware and threats.',
+      desc: 'Advanced security protecting workstations, servers, and mobile devices from malware.',
     },
     {
-      name: 'Security Monitoring & Response',
-      description:
-        '24/7 security monitoring with rapid incident detection, analysis, and coordinated response procedures.',
+      name: 'Security Monitoring',
+      desc: '24/7 monitoring with rapid incident detection and coordinated response procedures.',
     },
     {
-      name: 'AI-Based Threat Detection',
-      description:
-        'Machine learning systems identifying anomalous behavior and potential threats through pattern analysis.',
-    },
-  ];
-
-  const implementationSteps = [
-    {
-      title: 'Security Assessment',
-      desc: 'Comprehensive evaluation of current security posture, identification of vulnerabilities, and risk analysis.',
-    },
-    {
-      title: 'Architecture Design',
-      desc: 'Security architecture design incorporating defense-in-depth principles, network segmentation, and access controls.',
-    },
-    {
-      title: 'Solution Deployment',
-      desc: 'Professional implementation of firewalls, endpoint protection, monitoring systems, and security policies.',
-    },
-    {
-      title: 'Testing and Validation',
-      desc: 'Rigorous security testing to verify effectiveness of controls and identify any remaining vulnerabilities.',
-    },
-    {
-      title: 'Ongoing Management',
-      desc: 'Continuous monitoring, threat intelligence updates, and regular security posture assessments.',
+      name: 'AI Threat Detection',
+      desc: 'Machine learning systems identifying anomalous behavior through pattern analysis.',
     },
   ];
 
   return (
     <div className="bg-white">
-      <PageHeader
-        title="Cybersecurity & Digital Protection"
-        description="Advanced security solutions protecting digital assets and business operations"
-      />
-
-      {/* 1. THREAT DEFENSE OVERVIEW */}
-      <Section className="py-24 border-b border-slate-200">
+      <Section className="pt-32 pb-24 border-b border-slate-200">
         <div className="max-w-4xl mb-16">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="h-1 w-12 bg-orange-500"></div>
-            <span className="text-xs font-bold tracking-[0.2em] text-slate-500 uppercase">
-              Proactive Defense
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-[2px] w-8 bg-blue-600"></div>
+            <span className="text-slate-500 font-bold tracking-[0.2em] uppercase text-xs">
+              Digital Protection
             </span>
           </div>
-          <h2 className="text-3xl font-bold text-slate-900 mb-6 tracking-tight">
-            Defense Against Digital Threats
-          </h2>
-          <p className="text-lg text-slate-600 leading-relaxed mb-6">
-            Cybersecurity threats evolve constantly, requiring proactive defense
-            strategies and continuous monitoring. We implement multilayered
-            security architectures that protect networks, applications, and data
-            from unauthorized access, malware, and sophisticated attacks.
-          </p>
-          <p className="text-lg text-slate-600 leading-relaxed">
-            Our solutions combine proven security technologies with threat
-            intelligence and rapid response capabilities, ensuring business
-            continuity in high-risk digital environments.
-          </p>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-8 tracking-tight">
+            Cyber Defense.
+          </h1>
+
+          <div className="border-l-[3px] border-orange-500 pl-6">
+            <p className="text-xl text-slate-800 font-medium mb-4">
+              Proactive Defense Architecture
+            </p>
+            <p className="text-lg text-slate-600 font-light leading-relaxed">
+              Multilayered security architectures protecting networks,
+              applications, and data from sophisticated attacks. Our solutions
+              combine proven security technologies with threat intelligence and
+              rapid response capabilities, ensuring business continuity in
+              high-risk digital environments.
+            </p>
+          </div>
         </div>
 
-        {/* Tactical Grid (3 Columns for desktop to handle the 7 items efficiently) */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {solutions.map((solution, index) => (
             <div
               key={index}
-              className={`border border-slate-200 bg-slate-50 p-8 ${
-                index === 0 ? 'lg:col-span-2 lg:bg-slate-900 lg:text-white' : ''
-              }`}
+              className="border border-slate-200 bg-slate-50 p-8 hover:border-blue-300 transition-colors"
             >
-              <div className="flex items-center justify-between mb-6">
-                <div
-                  className={`w-3 h-3 ${index === 0 ? 'bg-orange-500' : 'bg-blue-600'}`}
-                ></div>
-                <span
-                  className={`text-xs font-mono font-bold ${index === 0 ? 'text-slate-400' : 'text-slate-400'}`}
-                >
-                  SYS.0{index + 1}
-                </span>
+              <div className="flex justify-between items-center mb-6">
+                <div className="w-3 h-3 bg-blue-600"></div>
               </div>
-              <h3
-                className={`text-xl font-bold mb-3 ${index === 0 ? 'text-white' : 'text-slate-900'}`}
-              >
+              <h3 className="text-lg font-bold text-slate-900 mb-3">
                 {solution.name}
               </h3>
-              <p
-                className={`leading-relaxed ${index === 0 ? 'text-slate-300' : 'text-slate-600'}`}
-              >
-                {solution.description}
+              <p className="text-slate-600 text-sm leading-relaxed">
+                {solution.desc}
               </p>
             </div>
           ))}
         </div>
       </Section>
 
-      {/* 2. SECURITY IMPLEMENTATION PIPELINE */}
-      <Section className="py-24 bg-slate-50">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left Column: Context & Diagram */}
-          <div className="sticky top-24">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 tracking-tight">
-              Security Implementation Framework
+      <Section className="py-24 bg-slate-900 text-white">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div>
+            <h2 className="text-3xl font-bold mb-6 tracking-tight">
+              Implementation Framework
             </h2>
-            <p className="text-lg text-slate-600 mb-10 leading-relaxed">
-              True security is a continuous lifecycle, not a one-time
-              installation. Our deployment methodology is built on a rigid,
-              phased approach that ensures zero disruption to your daily
-              operations while systematically hardening your attack surface.
+            <p className="text-lg text-slate-400 mb-10 font-light">
+              True security is a continuous lifecycle. Our methodology is built
+              on a rigid, phased approach that systematically hardens your
+              attack surface.
             </p>
 
-            <div className="border border-slate-200 bg-white p-4 shadow-sm"></div>
+            <div className="relative h-64 md:h-96 w-full border border-slate-700 bg-slate-950 shadow-2xl overflow-hidden group mb-16 lg:mb-0">
+              <Image
+                src="/images/cyber-defense.png"
+                alt="Defense-in-Depth Cybersecurity Architecture"
+                fill
+                className="object-cover opacity-40 mix-blend-luminosity group-hover:opacity-75 group-hover:mix-blend-normal transition-all duration-700"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+            </div>
           </div>
 
-          {/* Right Column: The Numbered Pipeline */}
-          <div className="relative">
-            {/* The structural pipeline line running down the left */}
-            <div className="absolute left-[27px] top-4 bottom-4 w-px bg-slate-200"></div>
-
+          <div className="relative pt-4 lg:pt-0">
+            <div className="absolute left-[27px] top-0 bottom-4 w-px bg-slate-800"></div>
             <div className="space-y-12">
-              {implementationSteps.map((step, index) => (
+              {[
+                {
+                  title: 'Security Assessment',
+                  desc: 'Evaluation of current posture and vulnerability identification.',
+                },
+                {
+                  title: 'Architecture Design',
+                  desc: 'Design incorporating defense-in-depth principles.',
+                },
+                {
+                  title: 'Solution Deployment',
+                  desc: 'Professional implementation of firewalls and monitoring systems.',
+                },
+                {
+                  title: 'Testing & Validation',
+                  desc: 'Rigorous testing to verify effectiveness of controls.',
+                },
+                {
+                  title: 'Ongoing Management',
+                  desc: 'Continuous monitoring and threat intelligence updates.',
+                },
+              ].map((step, index) => (
                 <div key={index} className="relative pl-20 group">
-                  {/* Pipeline Node */}
-                  <div className="absolute left-0 top-1 w-14 h-14 bg-white border-2 border-slate-200 flex items-center justify-center font-bold text-slate-500 font-mono z-10 transition-colors duration-300 group-hover:border-blue-600 group-hover:text-blue-600">
+                  <div className="absolute left-0 top-0 w-14 h-14 bg-slate-950 border-2 border-slate-700 flex items-center justify-center font-bold text-slate-500 font-mono group-hover:border-blue-500 group-hover:text-blue-500 transition-colors z-10">
                     0{index + 1}
                   </div>
-
-                  <div>
-                    <h4 className="text-xl font-bold text-slate-900 mb-3">
-                      {step.title}
-                    </h4>
-                    <p className="text-slate-600 leading-relaxed">
-                      {step.desc}
-                    </p>
-                  </div>
+                  <h4 className="text-xl font-bold mb-2">{step.title}</h4>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    {step.desc}
+                  </p>
                 </div>
               ))}
             </div>
