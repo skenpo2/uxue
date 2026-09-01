@@ -1,0 +1,23 @@
+# UXUE Company Ltd
+
+UXUE is a technology-first security and ICT integration company based in Nairobi, Kenya. The company designs and deploys physical security, enterprise networking, security automation, ICT equipment and cybersecurity solutions for organisations in Kenya and East Africa.
+
+## Primary pages
+
+- Home: https://uxue.co.ke/
+- Company profile: https://uxue.co.ke/about
+- Solutions: https://uxue.co.ke/solutions
+- Industries: https://uxue.co.ke/industries
+- Projects: https://uxue.co.ke/projects
+- Insights: https://uxue.co.ke/blog
+- Contact: https://uxue.co.ke/contact
+
+## Solution areas
+
+- Physical security: https://uxue.co.ke/solutions/physical-security
+- Enterprise networking: https://uxue.co.ke/solutions/networking
+- Security automation: https://uxue.co.ke/solutions/automation
+- ICT equipment supply: https://uxue.co.ke/solutions/ict-equipment
+- Cybersecurity: https://uxue.co.ke/solutions/cybersecurity
+
+Use the canonical HTML pages and sitemap for complete, current content. Do not infer client identities, certifications, project metrics or capabilities that are not explicitly stated on the site.

@@ -2,119 +2,100 @@ import type { BlogPost } from '@/types';
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: 'choosing-enterprise-security-system',
-    title:
-      'Choosing the Right Enterprise Security System for Your Organization',
-    excerpt:
-      'Key considerations when selecting security infrastructure for corporate environments, from camera placement to system integration.',
-    date: '2026-01-15',
-    author: 'Uxue Security Team',
-    category: 'Physical Security',
-    image: 'https://via.placeholder.com/800x500',
-    content: `
-Selecting appropriate security infrastructure requires understanding both technical capabilities and operational requirements. Organizations must evaluate camera resolution and coverage, access control integration, monitoring capabilities, and scalability for future expansion.
-
-## Assessment Framework
-
-Begin with a comprehensive security assessment identifying vulnerable areas, traffic patterns, and critical assets requiring protection. This assessment should consider physical layout, operational hours, personnel movement, and existing security measures.
-
-## Technology Selection
-
-Modern IP camera systems provide superior image quality and analytics compared to analog alternatives. Consider cameras with sufficient resolution for identification purposes, adequate low-light performance, and analytics capabilities like motion detection and facial recognition.
-
-Access control systems should integrate with existing HR systems, provide detailed audit logs, and support multiple authentication methods including cards, biometrics, and mobile credentials.
-
-## Integration Requirements
-
-Enterprise security systems must integrate with alarm systems, building automation, and IT infrastructure. Evaluate platforms that support open protocols and provide centralized management of multiple security subsystems.
-
-## Scalability Considerations
-
-Design systems that accommodate future expansion without requiring complete replacement. Network-based systems generally provide better scalability than proprietary closed systems.
-
-Implementation should follow industry best practices with professional installation, comprehensive testing, and thorough documentation. Training security personnel on system operation ensures effective utilization of deployed technology.
-    `,
+    slug: 'building-better-enterprise-security-infrastructure',
+    title: 'How Modern Businesses Can Build Better Security Infrastructure',
+    excerpt: 'A practical framework for moving from isolated security devices to a coordinated, maintainable protection system.',
+    date: '2026-08-18', author: 'UXUE Editorial Team', category: 'Physical Security', image: '/images/phy-sec.jpg', readingTime: '7 min read', relatedServiceSlugs: ['physical-security', 'automation'],
+    sections: [
+      { heading: 'Start with operations, not equipment', paragraphs: ['A useful security design begins with how a facility actually works. Map public and restricted areas, entrances, vehicle movement, staff routines, valuable assets and the events that require a response. This creates a risk picture that is specific to the site instead of a shopping list built around camera counts.', 'The assessment should also identify who will operate the system. A sophisticated platform that the security team cannot use quickly is less valuable than a focused system with clear workflows, ownership and escalation paths.'] },
+      { heading: 'Design the layers as one system', paragraphs: ['Surveillance, access control, intrusion detection and perimeter protection solve different parts of the problem. They are most effective when the design explains how these layers support one another. A denied access event, for example, may need associated video and a clear notification path.', 'Integration does not mean connecting every possible feature. It means joining the information that helps an operator understand an event and take the right next step.'], points: ['Define coverage and identification goals for each camera zone', 'Use access permissions that match real roles and schedules', 'Plan alarms around response actions, not notification volume', 'Protect the network, storage and power that security systems depend on'] },
+      { heading: 'Plan for ownership and change', paragraphs: ['Security infrastructure lasts beyond its initial installation. Documentation, device naming, retention settings, user administration, testing routines and spare capacity all affect how well the system performs later.', 'A phased roadmap can be more effective than an uncontrolled large deployment. Establish the core architecture, prioritise the highest-risk zones and make later expansion part of the original network, storage and licensing decisions.'] },
+      { heading: 'Measure readiness before handover', paragraphs: ['Commissioning should test normal operations as well as exceptions: loss of power, loss of connectivity, invalid credentials, after-hours events and recovery from faults. The handover is complete only when operators understand the workflows and the organisation has an accurate record of what was installed.'] },
+    ],
   },
   {
-    slug: 'structured-cabling-best-practices',
-    title: 'Structured Cabling Best Practices for Enterprise Networks',
-    excerpt:
-      'Professional guidelines for network infrastructure design and installation that ensures performance and reliability.',
-    date: '2026-01-10',
-    author: 'Uxue Network Team',
-    category: 'Networking',
-    image: 'https://via.placeholder.com/800x500',
-    content: `
-Structured cabling forms the physical foundation of enterprise networks. Proper design and installation directly impact network performance, reliability, and future scalability. Organizations investing in quality cabling infrastructure avoid costly retrofits and minimize network downtime.
-
-## Design Principles
-
-Network cabling design should follow TIA/EIA standards with appropriate cable categories for required bandwidth. Cat6A supports 10Gbps Ethernet over 100 meters, providing headroom for future bandwidth requirements without cable replacement.
-
-Maintain proper separation between data cables and electrical wiring to prevent electromagnetic interference. Install cables in dedicated pathways with adequate space for cable management and future additions.
-
-## Installation Standards
-
-Professional installation includes proper termination techniques, appropriate bend radius maintenance, and thorough testing of all cable runs. Each cable should be labeled at both ends with clear identification for troubleshooting and maintenance.
-
-Testing should verify that all cables meet specified performance standards with acceptable levels of attenuation, crosstalk, and return loss. Maintain detailed documentation including cable routes, termination points, and test results.
-
-## Documentation Requirements
-
-Comprehensive documentation proves essential for network maintenance and troubleshooting. Document cable routes, patch panel connections, and device locations with floor plans showing cable pathways and equipment locations.
-
-Quality structured cabling implementations provide decades of reliable service when installed following industry standards and manufacturer specifications.
-    `,
+    slug: 'cctv-vs-intelligent-video-surveillance', title: 'CCTV vs Intelligent Video Surveillance: What Changes?', excerpt: 'The difference is not simply newer cameras; it is how video is captured, searched and used within daily security operations.', date: '2026-08-04', author: 'UXUE Editorial Team', category: 'Video Surveillance', image: '/images/ict-camera.jpg', readingTime: '6 min read', relatedServiceSlugs: ['physical-security', 'automation'],
+    sections: [
+      { heading: 'Recording is only the first layer', paragraphs: ['Traditional CCTV is often designed around viewing and recording video. Modern IP surveillance retains those functions but can also provide better image quality, flexible networked placement, central management and tools that help operators find relevant footage.', 'The value of either approach still depends on fundamentals: field of view, lighting, mounting height, image detail, storage and a clear purpose for every camera. Analytics cannot recover detail that the camera never captured.'] },
+      { heading: 'What makes video intelligent', paragraphs: ['Intelligent video systems can classify or flag defined activity, making large camera estates easier to monitor. Depending on the selected platform, this may include line crossing, motion in a defined area, object search or event correlation with another system.', 'These features should be introduced around a documented operational need. Excessively sensitive rules create alert fatigue; rules that are too broad may miss the event they were intended to identify.'], points: ['Define the event and the action it should trigger', 'Test analytics in the actual lighting and traffic conditions', 'Set an owner for reviewing alerts and tuning rules', 'Keep privacy, permissions and retention in the design'] },
+      { heading: 'Network and storage become design decisions', paragraphs: ['IP video uses the organisation’s technology infrastructure. Camera quantity, resolution, frame rate, retention and viewing patterns affect bandwidth and storage. Segmentation, device hardening and controlled remote access are important because cameras and recorders are connected endpoints.', 'A surveillance upgrade should therefore include network, power and storage planning rather than treating cameras as an isolated purchase.'] },
+      { heading: 'Choose based on the operating model', paragraphs: ['The right question is not whether a system has the most analytics. It is whether the selected capabilities help the security team detect, investigate and respond more consistently. Begin with the operating model, then specify the cameras, platform and infrastructure required to support it.'] },
+    ],
   },
   {
-    slug: 'cybersecurity-basics-kenyan-businesses',
-    title: 'Cybersecurity Fundamentals for Kenyan Businesses',
-    excerpt:
-      'Essential cybersecurity measures every organization should implement to protect against common threats.',
-    date: '2026-01-05',
-    author: 'Uxue Cybersecurity Team',
-    category: 'Cybersecurity',
-    image: 'https://via.placeholder.com/800x500',
-    content: `
-Cybersecurity threats targeting Kenyan organizations continue increasing in sophistication and frequency. Businesses of all sizes must implement fundamental security measures protecting systems, data, and operations from unauthorized access and malicious activity.
-
-## Essential Security Controls
-
-Implement next-generation firewalls providing deep packet inspection, intrusion prevention, and application-level filtering. Configure firewalls to deny all traffic by default, permitting only necessary services through explicit rules.
-
-Deploy endpoint protection on all workstations and servers with real-time scanning, behavioral analysis, and automatic updates. Centralized management ensures consistent security policies across all devices.
-
-## Access Management
-
-Enforce strong authentication requirements including complex passwords, multi-factor authentication for sensitive systems, and regular password changes. Implement role-based access control limiting user permissions to required functions only.
-
-Regularly review and audit user accounts, disabling unnecessary accounts and revoking access for departed employees immediately. Monitor authentication logs for suspicious activity indicating potential compromise.
-
-## Data Protection
-
-Encrypt sensitive data both in transit and at rest using industry-standard encryption protocols. Implement secure backup procedures with regular testing of restoration capabilities. Maintain offline backups protecting against ransomware attacks.
-
-## Security Awareness
-
-Train employees to recognize phishing attempts, social engineering tactics, and suspicious activity. Regular security awareness training reduces the likelihood of successful attacks exploiting human vulnerabilities.
-
-Establish incident response procedures detailing actions to take when security incidents occur. Regular testing of these procedures ensures effective response when incidents happen.
-
-Cybersecurity requires ongoing attention and investment. Organizations implementing these fundamental controls significantly reduce their exposure to common threats while establishing foundations for more advanced security measures.
-    `,
+    slug: 'why-access-control-matters', title: 'Why Access Control Matters for Modern Enterprises', excerpt: 'A well-designed access system does more than unlock doors: it creates controlled, reviewable movement through an organisation.', date: '2026-07-21', author: 'UXUE Editorial Team', category: 'Access Control', image: '/images/gallery/n11.jpg', readingTime: '6 min read', relatedServiceSlugs: ['physical-security', 'automation'],
+    sections: [
+      { heading: 'Access should reflect how the organisation works', paragraphs: ['Keys are difficult to govern at scale. Access control allows permissions to be assigned to individuals or roles, limited to appropriate areas and schedules, and withdrawn without replacing physical locks across a site.', 'The design should mirror real responsibilities. Staff, contractors, visitors and facilities teams rarely need the same access. A clear permissions model reduces exceptions and makes administration easier.'] },
+      { heading: 'The door is part of a larger system', paragraphs: ['Readers and credentials are the visible elements, but reliable access control also depends on suitable locking hardware, door condition, safe egress, controllers, power, network connectivity and management software. Each opening must be assessed as a complete assembly.', 'Critical events should have defined responses. A forced door, repeated invalid credential or door held open condition is only useful if it reaches the right person with enough context.'], points: ['Group permissions by role before assigning individuals', 'Define visitor sponsorship and expiry', 'Review emergency release and life-safety requirements', 'Plan power backup and offline behaviour', 'Audit dormant credentials and access exceptions'] },
+      { heading: 'Biometrics require deliberate governance', paragraphs: ['Biometric authentication can strengthen identity assurance in appropriate environments, but it also requires careful enrolment, data handling and fallback planning. The strongest credential is not automatically the best fit for every opening or user group.', 'Select credential types based on the risk, flow of people, environmental conditions and administrative capacity of the organisation.'] },
+      { heading: 'Treat access data as operational information', paragraphs: ['Access records can support investigations and help administrators understand recurring exceptions. They should be protected through least-privilege access, appropriate retention and documented review practices. The goal is accountable movement without collecting or exposing more data than the operation needs.'] },
+    ],
+  },
+  {
+    slug: 'reliable-network-infrastructure-growing-business', title: 'Building Reliable Network Infrastructure for a Growing Business', excerpt: 'How to design the physical and active network layers so growth does not turn into recurring instability.', date: '2026-07-07', author: 'UXUE Editorial Team', category: 'Networking', image: '/images/network-server-switches.jpg', readingTime: '7 min read', relatedServiceSlugs: ['networking', 'ict-equipment', 'cybersecurity'],
+    sections: [
+      { heading: 'Translate growth into technical requirements', paragraphs: ['“More capacity” is not a sufficient network brief. Count users, devices, applications and locations; identify which services are sensitive to delay; understand guest, staff and operational technology traffic; and estimate how these requirements may change.', 'This avoids two common problems: an undersized network that needs early replacement and an overcomplicated design that is difficult to support.'] },
+      { heading: 'Build a stable physical foundation', paragraphs: ['Structured cabling, fibre backbones, racks, power and pathways determine what the active network can achieve. A clean logical design cannot compensate for damaged cable, poor termination or undocumented connections.', 'Plan equipment locations, uplink capacity and wireless access points together. Wireless coverage depends on the physical environment and client density, so access-point placement should follow a survey and capacity plan rather than visual symmetry.'], points: ['Provide labelled pathways and patching', 'Separate user, guest, security and management traffic appropriately', 'Allow rack, port and power capacity for planned growth', 'Document addressing, equipment and physical connections'] },
+      { heading: 'Design for failure and maintenance', paragraphs: ['Reliability comes from understanding what happens when a link, device or power source fails. Not every environment requires full duplication, but every critical dependency should be visible and an appropriate recovery approach agreed.', 'Maintenance also matters. Standard configurations, backups, monitoring and change records make routine work safer and reduce recovery time when something goes wrong.'] },
+      { heading: 'Verify performance in the real environment', paragraphs: ['Testing should include cable certification where required, wired throughput, wireless coverage, roaming, segmentation and access to critical services. Record the baseline so future problems can be compared against a known working state.'] },
+    ],
+  },
+  {
+    slug: 'structured-cabling-enterprise-foundation', title: 'Structured Cabling: The Quiet Foundation of Enterprise Networks', excerpt: 'Why pathways, labelling, testing and lifecycle planning matter as much as the cable category itself.', date: '2026-06-23', author: 'UXUE Editorial Team', category: 'ICT Infrastructure', image: '/images/network-cable.jpg', readingTime: '6 min read', relatedServiceSlugs: ['networking'],
+    sections: [
+      { heading: 'Cabling is a long-term infrastructure decision', paragraphs: ['Switches and access points change more frequently than the cable inside walls, ceilings and underground pathways. Cabling should therefore be selected and installed around the expected service life of the facility, application requirements and future expansion.', 'Cable category is only one factor. Route length, termination quality, bend radius, interference, containment and patching all influence performance and maintainability.'] },
+      { heading: 'Good organisation reduces operational risk', paragraphs: ['A labelled outlet, patch panel and rack create a traceable connection from the user or device back to the network. That traceability shortens fault-finding and helps teams make changes without disturbing unrelated services.', 'Pathways need suitable capacity and separation from electrical sources. Racks need space, airflow, power and cable management. These decisions should be resolved before installation begins.'], points: ['Create a consistent naming convention', 'Record outlet, patch-panel and switch-port relationships', 'Use appropriate fibre between buildings or high-capacity areas', 'Protect external and underground routes', 'Reserve pathway and rack capacity for foreseeable additions'] },
+      { heading: 'Testing turns installation into evidence', paragraphs: ['Visual inspection cannot confirm end-to-end cable performance. The required test method should be agreed for the project and results retained with the handover documentation. Failed links must be corrected and retested rather than accepted as “working for now.”'] },
+      { heading: 'Design the handover before installation', paragraphs: ['A useful handover includes drawings or route information, schedules, labels, test results and a clear view of equipment locations. When documentation is treated as a deliverable from the start, it is more likely to match the installed system.'] },
+    ],
+  },
+  {
+    slug: 'integrated-security-systems-business-operations', title: 'How Integrated Security Systems Improve Business Operations', excerpt: 'Integration can reduce fragmented monitoring and help teams respond with better context—when workflows lead the design.', date: '2026-06-09', author: 'UXUE Editorial Team', category: 'Automation', image: '/images/smart-auto.jpg', readingTime: '6 min read', relatedServiceSlugs: ['automation', 'physical-security'],
+    sections: [
+      { heading: 'The cost of isolated systems', paragraphs: ['A facility may have video, access control, alarms and gate automation that each work correctly but require separate screens, records and operator actions. During an incident, staff must manually assemble the context across those systems.', 'Integration can reduce this fragmentation by connecting selected events and presenting related information together. The aim is not a visually impressive control room; it is a faster, more consistent operational decision.'] },
+      { heading: 'Begin with valuable workflows', paragraphs: ['Identify moments where coordination matters: a forced door, a vehicle arrival, an alarm in a restricted zone or access outside an approved schedule. Document the source event, information the operator needs, response, escalation and record that should remain.', 'This workflow becomes the acceptance test for integration. If the connected system does not make that response clearer, the integration needs refinement.'], points: ['Prioritise events with a defined owner', 'Avoid duplicating low-value alerts across every screen', 'Use permissions appropriate to each operator role', 'Test network loss and manual fallback procedures'] },
+      { heading: 'Data quality and naming matter', paragraphs: ['Systems cannot coordinate cleanly when sites, doors, cameras and users are named inconsistently. Establishing shared identifiers and keeping time synchronised across devices improves event correlation and investigation.', 'Integration also expands the importance of cybersecurity. Management interfaces, service accounts and remote access should be controlled and maintained as part of the overall system.'] },
+      { heading: 'Improve in stages', paragraphs: ['Start with the highest-value workflows, measure how they perform and tune them with the operators who use the system. A staged programme is easier to govern than a large integration that tries to automate every possible event at once.'] },
+    ],
+  },
+  {
+    slug: 'technology-infrastructure-african-enterprises', title: 'Designing Technology Infrastructure for African Enterprises', excerpt: 'A context-led approach to power, connectivity, maintainability and phased growth in African operating environments.', date: '2026-05-26', author: 'UXUE Editorial Team', category: 'Strategy', image: '/images/power.jpg', readingTime: '7 min read', relatedServiceSlugs: ['networking', 'ict-equipment', 'physical-security'],
+    sections: [
+      { heading: 'Design for the actual operating context', paragraphs: ['Enterprise technology principles are global, but every deployment exists in a local facility with its own power quality, connectivity options, climate, supply timelines and support capability. Good design makes these conditions explicit instead of treating them as exceptions.', 'The objective is not to reduce ambition. It is to choose an architecture that can be operated and expanded reliably in the environment where it will live.'] },
+      { heading: 'Treat power and connectivity as dependencies', paragraphs: ['Security, network and automation platforms all depend on stable power and communication paths. Identify which functions must continue during an outage, for how long, and how graceful shutdown or degraded operation should work.', 'Where multiple sites are involved, connectivity choices should reflect availability, capacity and recovery needs. The critical service path—from device through network and platform to operator—should be understood end to end.'], points: ['Assess power protection for active equipment', 'Use suitable enclosures and environmental controls', 'Plan local operation when upstream connectivity is unavailable', 'Keep spares and support access proportionate to business criticality'] },
+      { heading: 'Maintainability is a design quality', paragraphs: ['Standard equipment, clear documentation, disciplined labelling and accessible layouts reduce the specialist effort required for routine support. Systems that can only be understood by the original installer create avoidable long-term risk.', 'Training should reflect user roles: operators need confident daily workflows, administrators need controlled configuration knowledge, and leadership needs a clear understanding of lifecycle and support responsibilities.'] },
+      { heading: 'Use phases without creating fragments', paragraphs: ['Phased delivery can align investment with priority, but each phase should contribute to an agreed target architecture. Shared naming, network, identity, management and documentation principles keep later additions from becoming disconnected islands.'] },
+    ],
+  },
+  {
+    slug: 'security-infrastructure-financial-institutions', title: 'Security Infrastructure Considerations for Financial Institutions', excerpt: 'A layered planning guide for access, surveillance, networks and operational continuity in high-control environments.', date: '2026-05-12', author: 'UXUE Editorial Team', category: 'Financial Services', image: '/images/focus.jpg', readingTime: '7 min read', relatedServiceSlugs: ['physical-security', 'networking', 'cybersecurity', 'automation'],
+    sections: [
+      { heading: 'Map zones, users and critical processes', paragraphs: ['Financial environments contain different risk zones: public service areas, staff workspaces, cash-handling or record areas, technical rooms and external perimeters. The security model should explain who can enter each zone, under which conditions and how exceptions are handled.', 'Branch and central-office designs may share principles but differ in scale and workflow. A repeatable baseline should still leave room for the physical context of each site.'] },
+      { heading: 'Build evidence across physical and digital layers', paragraphs: ['Surveillance, access records, alarm events and network logs each provide a partial view. Time synchronisation, consistent naming and controlled retention make those records more useful during review.', 'The systems that capture evidence must themselves be protected. Management networks, administrator accounts, device configuration and remote support paths require deliberate controls.'], points: ['Define camera objectives by zone', 'Use role-based access with prompt credential revocation', 'Protect recording, controllers and network equipment with backup power', 'Document escalation and incident-preservation procedures'] },
+      { heading: 'Plan for multiple sites', paragraphs: ['A multi-site estate needs central visibility without making every branch dependent on one fragile connection. Decide which functions must continue locally, how configuration will be governed and how health or exception information reaches the responsible team.', 'Consistency in equipment, naming and documentation makes support more predictable, while site surveys capture the differences that affect deployment.'] },
+      { heading: 'Test controls as operational scenarios', paragraphs: ['Acceptance testing should follow real scenarios rather than checking devices individually. Test access exceptions, loss of communication, after-hours alarms, video retrieval and escalation. This demonstrates whether the organisation—not just the equipment—is ready.'] },
+    ],
+  },
+  {
+    slug: 'technology-infrastructure-educational-institutions', title: 'Technology Infrastructure for Modern Educational Institutions', excerpt: 'Planning secure, connected campuses around varied buildings, changing populations and long-term growth.', date: '2026-04-28', author: 'UXUE Editorial Team', category: 'Education', image: '/images/schoolcctv.jpg', readingTime: '6 min read', relatedServiceSlugs: ['networking', 'physical-security', 'automation', 'ict-equipment'],
+    sections: [
+      { heading: 'Think in campus systems', paragraphs: ['A campus is more than a collection of buildings. Students, staff, visitors, services and devices move across shared spaces and schedules. Network and security planning should use a campus map that connects buildings, pathways, external areas and critical rooms.', 'This view helps identify backbone routes, equipment locations, wireless zones, surveillance priorities and access boundaries before individual products are selected.'] },
+      { heading: 'Balance openness and control', paragraphs: ['Educational environments need welcoming public and learning spaces alongside controlled offices, laboratories, stores and technology rooms. Access controls should be targeted where they add value rather than creating unnecessary friction at every boundary.', 'Surveillance objectives should be stated clearly for entrances, circulation areas and priority zones. Lighting, privacy and the ability to review footage are part of that design.'], points: ['Separate guest, staff, student and device network needs', 'Plan fibre and structured cabling as a long-term backbone', 'Provide secure, ventilated locations for active equipment', 'Make user and credential changes easy to administer'] },
+      { heading: 'Design for term cycles and phased growth', paragraphs: ['Installation and major changes may need to align with academic calendars. A phased architecture can prioritise critical buildings while preserving consistent network, naming and management standards across later work.', 'Capacity planning should consider more than current enrolment. New learning tools, video, access devices and operational systems can significantly increase network and storage requirements.'] },
+      { heading: 'Make support part of the handover', paragraphs: ['Campus technical and security teams need documentation that matches their responsibilities. Clear diagrams, device schedules, operator guidance and escalation contacts reduce dependence on informal knowledge and help the institution manage change confidently.'] },
+    ],
+  },
+  {
+    slug: 'enterprise-technology-installation-to-support', title: 'From Installation to Support: Managing Enterprise Technology Infrastructure', excerpt: 'Why documentation, training, monitoring and lifecycle ownership determine whether a deployment keeps delivering value.', date: '2026-04-14', author: 'UXUE Editorial Team', category: 'Operations', image: '/images/gallery/n8.jpg', readingTime: '7 min read', relatedServiceSlugs: ['networking', 'physical-security', 'ict-equipment'],
+    sections: [
+      { heading: 'Installation is a transition, not the finish line', paragraphs: ['A newly deployed system enters a longer operational life that includes user changes, software updates, equipment faults, expansion and eventual replacement. Decisions made during installation determine how safely and efficiently those changes can be managed.', 'The operational owner should be known before handover. That person or team needs appropriate access, documentation and a clear route for support.'] },
+      { heading: 'Build an accurate system record', paragraphs: ['Useful documentation describes what was actually installed: equipment, locations, connections, addressing where relevant, configuration responsibility, warranties and test results. Generic product manuals do not replace an organisation-specific system record.', 'Naming should match labels in the field and interfaces on screen. When a camera, door, outlet or switch port uses the same identifier everywhere, investigation and maintenance become faster.'], points: ['Retain approved designs and update them after installation', 'Record administrator ownership without exposing credentials in documents', 'Keep configuration backups in a controlled location', 'Schedule reviews for users, licences, firmware and capacity'] },
+      { heading: 'Train around real tasks', paragraphs: ['Training should use the workflows people will perform: responding to alarms, retrieving video, granting access, tracing a connection or escalating a fault. Different roles require different depth, and new staff need a repeatable onboarding path.', 'A short post-handover review can capture issues that only become visible during normal operations and turn them into configuration or process improvements.'] },
+      { heading: 'Manage the lifecycle deliberately', paragraphs: ['Monitor system health, investigate recurring faults and review whether capacity still matches demand. Planned maintenance and replacement are generally less disruptive than emergency decisions after failure.', 'A good support model defines scope, response expectations, access arrangements and responsibility between the organisation, integrator and product vendors. That clarity protects both continuity and security.'] },
+    ],
   },
 ];
 
-export function getBlogPosts(): BlogPost[] {
-  return blogPosts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
-}
-
-export function getBlogPost(slug: string): BlogPost | undefined {
-  return blogPosts.find((post) => post.slug === slug);
-}
-
-export function getBlogSlugs(): string[] {
-  return blogPosts.map((post) => post.slug);
-}
+export function getBlogPosts(): BlogPost[] { return [...blogPosts].sort((a, b) => Date.parse(b.date) - Date.parse(a.date)); }
+export function getBlogPost(slug: string) { return blogPosts.find((post) => post.slug === slug); }
+export function getBlogSlugs() { return blogPosts.map((post) => post.slug); }

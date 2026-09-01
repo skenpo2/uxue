@@ -1,277 +1,83 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { FocusEvent, useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { industries, services } from '@/lib/site';
+
+const primary = [
+  { href: '/solutions', label: 'Solutions' }, { href: '/industries', label: 'Industries' },
+  { href: '/projects', label: 'Projects' }, { href: '/blog', label: 'Insights' }, { href: '/about', label: 'About' },
+];
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [menu, setMenu] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [isMenuOpen]);
+    document.body.classList.toggle('menu-open', open);
+    const close = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      setOpen(false);
+      setMenu(null);
+    };
+    window.addEventListener('keydown', close);
+    return () => { document.body.classList.remove('menu-open'); window.removeEventListener('keydown', close); };
+  }, [open]);
 
-  const services = [
-    {
-      name: 'Physical Security',
-      href: '/services/physical-security',
-      desc: 'CCTV & Biometrics',
-    },
-    {
-      name: 'Enterprise Networking',
-      href: '/services/networking',
-      desc: 'Fiber & Structured Cabling',
-    },
-    {
-      name: 'Security Automation',
-      href: '/services/automation',
-      desc: 'Smart Gates & IoT',
-    },
-    {
-      name: 'ICT Equipment',
-      href: '/services/ict-equipment',
-      desc: 'Servers & Hardware',
-    },
-    {
-      name: 'Cyber Defense',
-      href: '/services/cybersecurity',
-      desc: 'Pen-Testing & Firewalls',
-    },
-  ];
+  // Close any open dropdown once a client-side navigation lands (covers
+  // back/forward too, where no link onClick fires).
+  const [menuPath, setMenuPath] = useState(pathname);
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
+    setMenu(null);
+  }
 
-  const isActive = (path: string) => pathname === path;
+  const dropdown = (key: string, extra = '') => ({
+    className: `nav-dropdown${menu === key ? ' is-open' : ''}${extra ? ` ${extra}` : ''}`,
+    onMouseEnter: () => setMenu(key),
+    onMouseLeave: () => setMenu((current) => (current === key ? null : current)),
+    onFocus: () => setMenu(key),
+    onBlur: (event: FocusEvent<HTMLDivElement>) => {
+      if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setMenu(null);
+    },
+  });
 
+  const active = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
   return (
-    <nav className="fixed top-0 left-0 right-0 h-20 bg-white border-b border-slate-200 z-50 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-        <div className="flex justify-between items-center h-full">
-          {/* LOGO */}
-          <Link
-            href="/"
-            className="relative flex items-center h-full w-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <Image
-              src="/images/uxue-logo.svg"
-              alt="Uxue Company Ltd"
-              fill
-              className="object-contain object-left"
-              priority
-            />
-          </Link>
-
-          {/* DESKTOP NAV */}
-          <div className="hidden lg:flex items-center gap-8">
-            <NavLink href="/" active={isActive('/')}>
-              Home
-            </NavLink>
-            <NavLink href="/about" active={isActive('/about')}>
-              About
-            </NavLink>
-
-            {/* SERVICES DROPDOWN */}
-            <div className="relative group h-full flex items-center">
-              <button
-                className={`flex items-center gap-1 text-sm font-bold uppercase tracking-wide transition-colors focus:outline-none
-                ${
-                  pathname.startsWith('/services')
-                    ? 'text-blue-700'
-                    : 'text-slate-600 group-hover:text-orange-600'
-                }`}
-              >
-                Services
-                <svg
-                  className="w-3 h-3 transition-transform duration-200 group-hover:-rotate-180 group-hover:text-orange-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="square"
-                    strokeLinejoin="miter"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-
-              {/* Dropdown Content */}
-              <div className="absolute top-full left-1/2 -translate-x-1/2 w-72 bg-white border border-slate-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0">
-                {/* Accent bar changed to orange to draw the eye */}
-                <div className="absolute top-0 left-0 w-full h-[3px] bg-orange-500"></div>
-                <div className="py-2">
-                  {services.map((service) => (
-                    <Link
-                      key={service.href}
-                      href={service.href}
-                      className="block px-6 py-4 hover:bg-slate-50 border-b border-slate-50 last:border-0 group/item focus:bg-slate-50 outline-none"
-                    >
-                      <div className="text-sm font-bold text-slate-900 group-hover/item:text-orange-600 uppercase tracking-wide transition-colors">
-                        {service.name}
-                      </div>
-                      <div className="text-xs text-slate-500 mt-1 font-mono">
-                        {service.desc}
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+    <header className="site-header">
+      <div className="shell site-header__inner">
+        <Link href="/" className="brand" aria-label="UXUE home" onClick={() => setOpen(false)}>
+          <Image src="/images/uxue-logo.svg" alt="UXUE Company Ltd" width={142} height={56} priority />
+        </Link>
+        <nav className="desktop-nav" aria-label="Primary navigation">
+          <div {...dropdown('solutions')}>
+            <Link href="/solutions" className={active('/solutions') ? 'is-active' : ''} onClick={() => setMenu(null)}>Solutions</Link>
+            <div className="nav-mega">
+              <p>Integrated capabilities</p>
+              <div>{services.map((service, index) => <Link href={`/solutions/${service.slug}`} key={service.slug} onClick={() => setMenu(null)}><span>0{index + 1}</span><strong>{service.shortName}</strong><small>{service.summary}</small></Link>)}</div>
             </div>
-
-            <NavLink href="/projects" active={isActive('/projects')}>
-              Projects
-            </NavLink>
-
-            <Link
-              href="/contact"
-              className="ml-4 px-6 py-2.5 bg-slate-900 text-white text-xs font-bold uppercase tracking-widest hover:bg-orange-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-600 shadow-sm"
-            >
-              Contact
-            </Link>
           </div>
-
-          {/* MOBILE TOGGLE BUTTON */}
-          <button
-            className="lg:hidden p-2 text-slate-900 hover:text-orange-600 transition-colors focus:outline-none"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle Menu"
-          >
-            {isMenuOpen ? (
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="square"
-                  strokeLinejoin="miter"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="square"
-                  strokeLinejoin="miter"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            )}
-          </button>
-        </div>
+          <div {...dropdown('industries', 'nav-dropdown--industries')}>
+            <Link href="/industries" className={active('/industries') ? 'is-active' : ''} onClick={() => setMenu(null)}>Industries</Link>
+            <div className="nav-mega nav-mega--small"><p>Operating contexts</p><div>{industries.map((industry) => <Link href={`/industries/${industry.slug}`} key={industry.slug} onClick={() => setMenu(null)}><strong>{industry.name}</strong></Link>)}</div></div>
+          </div>
+          {primary.slice(2).map((item) => <Link key={item.href} href={item.href} className={active(item.href) ? 'is-active' : ''}>{item.label}</Link>)}
+        </nav>
+        <Link href="/contact" className="button button--dark header-cta">Start a conversation</Link>
+        <button type="button" className="menu-toggle" aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>
+          <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span><span /><span />
+        </button>
       </div>
-
-      {/* MOBILE MENU */}
-      {isMenuOpen && (
-        <div className="lg:hidden fixed top-20 left-0 w-full h-[calc(100vh-5rem)] bg-white z-40 overflow-y-auto border-t border-slate-100 shadow-inner">
-          <div className="flex flex-col p-6 space-y-6 pb-20">
-            <MobileLink href="/" onClick={() => setIsMenuOpen(false)}>
-              Home
-            </MobileLink>
-            <MobileLink href="/about" onClick={() => setIsMenuOpen(false)}>
-              About
-            </MobileLink>
-
-            {/* Mobile Services Section */}
-            <div className="py-2">
-              <div className="text-xs font-bold text-orange-500 uppercase tracking-widest mb-4 border-b border-slate-100 pb-2">
-                Our Services
-              </div>
-              <div className="space-y-4 pl-2">
-                {services.map((s) => (
-                  <Link
-                    key={s.href}
-                    href={s.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block group"
-                  >
-                    <div className="text-lg font-bold text-slate-800 group-hover:text-orange-600 transition-colors">
-                      {s.name}
-                    </div>
-                    <div className="text-xs text-slate-500 font-mono">
-                      {s.desc}
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <MobileLink href="/projects" onClick={() => setIsMenuOpen(false)}>
-              Projects
-            </MobileLink>
-
-            <div className="pt-4">
-              <Link
-                href="/contact"
-                onClick={() => setIsMenuOpen(false)}
-                className="block w-full text-center py-4 bg-slate-900 text-white font-bold uppercase tracking-widest text-sm hover:bg-orange-600 transition-colors shadow-sm"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-    </nav>
-  );
-}
-
-// Helper Components
-function NavLink({
-  href,
-  active,
-  children,
-}: {
-  href: string;
-  active?: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      className={`text-sm font-bold uppercase tracking-wide transition-colors relative py-2 focus:outline-none
-            ${active ? 'text-blue-700' : 'text-slate-600 hover:text-orange-600'}
-            ${
-              active
-                ? 'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-orange-500'
-                : ''
-            }`}
-    >
-      {children}
-    </Link>
-  );
-}
-
-function MobileLink({
-  href,
-  onClick,
-  children,
-}: {
-  href: string;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      onClick={onClick}
-      className="text-[20px] font-bold text-slate-900 tracking-tight hover:text-orange-600 transition-colors block focus:outline-none"
-    >
-      {children}
-    </Link>
+      <div id="mobile-navigation" className={`mobile-nav ${open ? 'is-open' : ''}`} aria-hidden={!open}>
+        <nav className="shell" aria-label="Mobile navigation">
+          {primary.map((item, index) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item.label}</Link>)}
+          <div className="mobile-nav__services">{services.map((service) => <Link key={service.slug} href={`/solutions/${service.slug}`} onClick={() => setOpen(false)}>{service.shortName}</Link>)}</div>
+          <Link href="/contact" onClick={() => setOpen(false)} className="button button--orange">Start a conversation</Link>
+        </nav>
+      </div>
+    </header>
   );
 }
