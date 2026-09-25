@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Plus_Jakarta_Sans, Roboto } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -7,6 +7,7 @@ import JsonLd from '@/components/JsonLd';
 import { site } from '@/lib/site';
 
 const font = Plus_Jakarta_Sans({ subsets: ['latin'], display: 'swap', variable: '--font-sans' });
+const labelFont = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'], display: 'swap', variable: '--font-label' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={font.variable}>
+    <html lang="en" className={`${font.variable} ${labelFont.variable}`}>
       <body>
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <Navbar />

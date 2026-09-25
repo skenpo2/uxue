@@ -24,11 +24,10 @@ export default async function ProjectPage({ params }: Props) {
   const otherProjects = projects.filter((item) => item.slug !== project.slug).slice(0, 2);
   return (
     <>
-      <PageHero eyebrow={project.category} title={project.title} description={project.summary} images={[project.image, ...project.gallery]} breadcrumbs={[{ label: 'Projects', href: '/projects' }, { label: project.title }]} />
+      <PageHero title={project.title} description={project.summary} images={[project.image, ...project.gallery]} breadcrumbs={[{ label: 'Projects', href: '/projects' }, { label: project.title }]} />
       <Section className="section">
         <div className="detail-intro">
           <aside className="detail-intro__aside">
-            <p className="eyebrow">Overview</p>
             <div className="related-links">{relatedServices.map((item) => <Link key={item.slug} href={`/solutions/${item.slug}`}>{item.shortName}</Link>)}</div>
             <div className="related-links related-links--spaced">{relatedIndustries.map((item) => <Link key={item.slug} href={`/industries/${item.slug}`}>{item.name}</Link>)}</div>
           </aside>
@@ -36,7 +35,7 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       </Section>
       <Section className="section section--paper">
-        <div className="section-heading"><div><p className="eyebrow">Project context</p><h2>The requirement and the response.</h2></div><p>A concise account based on the disclosed project scope.</p></div>
+        <div className="section-heading"><div><h2>The requirement and the response.</h2></div><p>A concise account based on the disclosed project scope.</p></div>
         <div className="feature-grid">
           <article className="feature-card"><span>01 · CHALLENGE</span><h3>What the environment required</h3><p>{project.challenge}</p></article>
           <article className="feature-card"><span>02 · SOLUTION</span><h3>How UXUE responded</h3><p>{project.solution}</p></article>
@@ -45,16 +44,16 @@ export default async function ProjectPage({ params }: Props) {
       <div className="gallery-strip">{project.gallery.map((image, index) => <div key={image}><Image src={image} alt={`${project.title} field image ${index + 1}`} fill sizes="(max-width: 767px) 100vw, 40vw" /></div>)}</div>
       <Section className="section">
         <div className="detail-intro">
-          <aside className="detail-intro__aside"><p className="eyebrow">Technology</p><div className="related-links">{project.technology.map((item) => <span key={item}>{item}</span>)}</div></aside>
-          <div><p className="eyebrow">Implementation</p><h2>The disclosed delivery scope.</h2><div className="number-list">{project.implementation.map((item, index) => <div key={item}><span className="number-list__index">0{index + 1}</span><h3>{item}</h3></div>)}</div><div className="project-outcome"><p className="eyebrow">Outcome</p><p className="lede">{project.outcome}</p></div></div>
+          <aside className="detail-intro__aside"><div className="related-links">{project.technology.map((item) => <span key={item}>{item}</span>)}</div></aside>
+          <div><h2>The disclosed delivery scope.</h2><div className="number-list">{project.implementation.map((item, index) => <div key={item}><span className="number-list__index">0{index + 1}</span><h3>{item}</h3></div>)}</div><div className="project-outcome"><p className="lede">{project.outcome}</p></div></div>
         </div>
       </Section>
       <Section className="section section--dark">
-        <div className="section-heading"><div><p className="eyebrow eyebrow--light">Delivery framework</p><h2>How work of this kind is approached.</h2></div><p className="on-dark">This framework explains UXUE’s project approach without adding undisclosed project-specific claims.</p></div>
+        <div className="section-heading"><div><h2>How work of this kind is approached.</h2></div><p className="on-dark">This framework explains UXUE’s project approach without adding undisclosed project-specific claims.</p></div>
         <div className="process">{[['Assess', 'Confirm site conditions, users and operational requirements.'], ['Design', 'Coordinate device, network, power and management layers.'], ['Install', 'Execute controlled field work and configuration.'], ['Verify', 'Test the system, document the deployment and support handover.']].map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
       </Section>
-      {relatedArticles.length > 0 && <Section className="section section--paper"><div className="section-heading"><div><p className="eyebrow">Related insights</p><h2>Explore the thinking behind the systems.</h2></div><p>Planning guidance connected to this project’s solution areas.</p></div><div className="article-grid">{relatedArticles.map((article) => <BlogCard key={article.slug} post={article} />)}</div></Section>}
-      <Section className="section"><div className="section-heading"><div><p className="eyebrow">Continue exploring</p><h2>Other project records.</h2></div></div><div className="project-grid">{otherProjects.map((item) => <Link href={`/projects/${item.slug}`} className="project-card" key={item.slug}><div className="project-card__image"><Image src={item.image} alt={item.title} fill sizes="(max-width: 767px) 100vw, 50vw" /></div><small>{item.category}</small><h3>{item.title}</h3><p>{item.summary}</p></Link>)}</div></Section>
+      {relatedArticles.length > 0 && <Section className="section section--paper"><div className="section-heading"><div><h2>Explore the thinking behind the systems.</h2></div><p>Planning guidance connected to this project’s solution areas.</p></div><div className="article-grid">{relatedArticles.map((article) => <BlogCard key={article.slug} post={article} />)}</div></Section>}
+      <Section className="section"><div className="section-heading"><div><h2>Other project records.</h2></div></div><div className="project-grid">{otherProjects.map((item) => <Link href={`/projects/${item.slug}`} className="project-card" key={item.slug}><div className="project-card__image"><Image src={item.image} alt={item.title} fill sizes="(max-width: 767px) 100vw, 50vw" /></div><small>{item.category}</small><h3>{item.title}</h3><p>{item.summary}</p></Link>)}</div></Section>
       <CTASection />
     </>
   );

@@ -7,7 +7,7 @@ export const site = {
   url: 'https://uxue.co.ke',
   description:
     'Technology-first security and ICT integration for organisations in Kenya and East Africa.',
-  email: 'uxuelimitedcompany@gmail.com',
+  email: 'info@uxue.co.ke',
   phones: ['+254 718 074 080', '+254 726 132 035'],
   poBox,
   city,
@@ -41,7 +41,7 @@ export const services: Service[] = [
       'Integrated surveillance, access control, alarms and perimeter systems designed around each site.',
     description:
       'UXUE designs and deploys physical security infrastructure that helps organisations deter threats, detect events and manage access with clearer operational visibility.',
-    image: '/images/phy-sec.jpg',
+    image: '/media/urban-surveillance.webp',
     capabilities: [
       { title: 'IP video surveillance', description: 'High-resolution cameras, recording and intelligent video capabilities for critical zones.' },
       { title: 'Access control', description: 'Card, biometric and managed authentication for controlled movement through a facility.' },
@@ -65,7 +65,7 @@ export const services: Service[] = [
       'Structured cabling, fibre, wireless networks and data-centre infrastructure built for dependable operations.',
     description:
       'UXUE plans and implements the physical and active network layers that connect people, devices and sites—from structured cabling and fibre to routing, switching, wireless coverage and server-room infrastructure.',
-    image: '/images/network-server-switches.jpg',
+    image: '/media/network-engineer-installation.webp',
     capabilities: [
       { title: 'Structured cabling and fibre', description: 'Copper and fibre infrastructure organised, labelled and designed for maintainability.' },
       { title: 'LAN, WAN and wireless', description: 'Wired and wireless environments planned around coverage, capacity and secure access.' },
@@ -89,7 +89,7 @@ export const services: Service[] = [
       'Visitor, gate, IoT and monitoring systems integrated to improve visibility and response.',
     description:
       'UXUE connects surveillance, access, alarms and operational devices so events can be monitored and managed from a clearer, more coordinated interface.',
-    image: '/images/smar-au.jpg',
+    image: '/media/access-control-reader.webp',
     capabilities: [
       { title: 'Visitor management', description: 'Digital visitor workflows, access records and controlled arrival processes.' },
       { title: 'IoT monitoring', description: 'Dashboards that bring relevant device and environmental status into one view.' },
@@ -113,7 +113,7 @@ export const services: Service[] = [
       'Enterprise computing, server, storage, power and networking equipment supported by technical guidance.',
     description:
       'UXUE supports technology procurement from requirements assessment through equipment supply, configuration and integration with the existing environment.',
-    image: '/images/ict-equip.jpg',
+    image: '/media/data-centre-aisle.webp',
     capabilities: [
       { title: 'Computing equipment', description: 'Business workstations, laptops, desktops, thin clients and specialised systems.' },
       { title: 'Server and storage', description: 'Rack and tower servers, network-attached storage and backup infrastructure.' },
@@ -137,7 +137,7 @@ export const services: Service[] = [
       'Firewall, endpoint, cloud and assessment services aligned to the organisation’s technology environment.',
     description:
       'UXUE helps organisations identify weaknesses and introduce layered controls across networks, endpoints and cloud environments while keeping operational continuity in view.',
-    image: '/images/cyber-defense.png',
+    image: '/media/operations-monitoring.webp',
     capabilities: [
       { title: 'Next-generation firewalls', description: 'Network controls with inspection, intrusion prevention and application-aware policy.' },
       { title: 'Cloud security', description: 'Configuration, hardening and security visibility for cloud environments.' },

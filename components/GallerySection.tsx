@@ -17,5 +17,5 @@ const images = [
 ] as const;
 
 export default function GallerySection() {
-  return <Section className="section section--paper"><div className="section-heading"><div><p className="eyebrow">Field archive</p><h2>The work behind the systems.</h2></div><p>Real installation and deployment imagery from UXUE’s existing project archive.</p></div><div className="field-gallery">{images.map(([src, alt], index) => <div key={src} className={index === 0 || index === 5 ? 'field-gallery__wide' : ''}><Image src={src} alt={alt} fill sizes="(max-width: 767px) 50vw, 25vw" /></div>)}</div></Section>;
+  return <Section className="section section--paper"><div className="section-heading"><div><h2>The work behind the systems.</h2></div><p>Real installation and deployment imagery from UXUE’s existing project archive.</p></div><div className="field-gallery">{images.map(([src, alt], index) => <div key={src} className={index === 0 || index === 5 ? 'field-gallery__wide' : ''}><Image src={src} alt={alt} fill sizes="(max-width: 767px) 50vw, 25vw" /></div>)}</div></Section>;
 }
