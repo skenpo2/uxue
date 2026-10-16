@@ -1,39 +1,160 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import BlogCard from '@/components/BlogCard';
 import CTASection from '@/components/CTASection';
 import JsonLd from '@/components/JsonLd';
 import PageHero from '@/components/PageHero';
+import MediaCard from '@/components/MediaCard';
+import ProjectCarousel from '@/components/ProjectCarousel';
 import Section from '@/components/Section';
 import { getBlogPosts } from '@/lib/blog';
-import { industries, projects, Service, site } from '@/lib/site';
-import { getServiceHeroImages } from '@/lib/hero-images';
+import { ctaImages } from '@/lib/cta';
+import { getSolutionDetail } from '@/lib/solutions';
+import { industries, projects, Service, site, technologyPartners } from '@/lib/site';
 
+const tick = 'M3.5 8.5 6.5 11.5 12.5 4.5';
+
+// Solution page: banner, intro, sub-services, capabilities, process, brands, projects, questions and a closing action.
 export default function ServiceDetailPage({ service }: { service: Service }) {
-  const relatedIndustries = industries.filter((item) => service.industrySlugs.includes(item.slug));
-  const relatedProjects = projects.filter((item) => item.serviceSlugs.includes(service.slug)).slice(0, 3);
+  const detail = getSolutionDetail(service.slug);
+  const relatedProjects = projects.filter((item) => item.serviceSlugs.includes(service.slug));
   const relatedArticles = getBlogPosts().filter((item) => item.relatedServiceSlugs.includes(service.slug)).slice(0, 3);
+  const brands = technologyPartners.filter(([name]) => detail.brands.includes(name));
+  const [lead, accent, tail] = detail.hero.title;
+  const servedIndustries = industries.filter((item) => service.industrySlugs.includes(item.slug));
+
   return (
     <>
-      <PageHero title={service.name} description={service.description} images={getServiceHeroImages(service.slug)} breadcrumbs={[{ label: 'Solutions', href: '/solutions' }, { label: service.name }]} />
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Service', name: service.name, description: service.description, provider: { '@type': 'Organization', name: site.name, url: site.url }, areaServed: ['Kenya', 'East Africa'], url: `${site.url}/solutions/${service.slug}` }} />
+      <PageHero
+        title={<>{lead}<span className="accent">{accent}</span>{tail}</>}
+        description={detail.hero.lede}
+        image={{ src: detail.hero.image, alt: detail.hero.alt, position: detail.hero.position }}
+        breadcrumbs={[{ label: 'Solutions', href: '/solutions' }, { label: service.name }]}
+      />
+      <JsonLd data={[
+        { '@context': 'https://schema.org', '@type': 'Service', name: service.name, description: service.description, provider: { '@type': 'Organization', name: site.name, url: site.url }, areaServed: ['Kenya', 'East Africa'], url: `${site.url}/solutions/${service.slug}`, hasOfferCatalog: { '@type': 'OfferCatalog', name: service.name, itemListElement: detail.subServices.map((item) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: item.title, description: item.text } })) } },
+        { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: detail.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) },
+      ]} />
+
       <Section className="section">
-        <div className="detail-intro"><aside className="detail-intro__aside"><h3>Infrastructure should strengthen the operation, not add another disconnected system.</h3></aside><div><h2>Designed around how your organisation needs to work.</h2><p className="lede">{service.summary} UXUE begins with the site, users, dependencies and operational outcome before defining equipment.</p></div></div>
+        <div className="solution-intro">
+          <div>
+            <p className="eyebrow">{service.name}</p>
+            <h2>{detail.intro.title[0]}<span className="accent">{detail.intro.title[1]}</span>{detail.intro.title[2]}</h2>
+            <p className="lede">{detail.intro.text}</p>
+            <Link href="/contact" className="text-link">Talk to an engineer</Link>
+          </div>
+          <figure className="solution-intro__media"><Image src={detail.intro.image} alt={detail.intro.alt} fill sizes="(max-width: 900px) 100vw, 50vw" /></figure>
+        </div>
+        <ul className="benefits">
+          {detail.benefits.map((item) => <li key={item.title}><h3>{item.title}</h3><p>{item.text}</p></li>)}
+        </ul>
       </Section>
+
       <Section className="section section--paper">
-        <div className="section-heading"><div><h2>The critical layers of {service.shortName.toLowerCase()}.</h2></div><p>Capability selection and system depth are established through assessment; not every deployment requires every layer.</p></div>
-        <div className="feature-grid">{service.capabilities.map((item, index) => <article className="feature-card" key={item.title}><span>CAP.0{index + 1}</span><h3>{item.title}</h3><p>{item.description}</p></article>)}</div>
+        <div className="section-intro section-intro--center">
+          <h2>What we <span className="accent">deliver</span></h2>
+          <p>{service.summary}</p>
+        </div>
+        <ol className="service-cards">
+          {detail.subServices.map((item, index) => (
+            <li key={item.title} className="service-card">
+              <span className="service-card__index">0{index + 1}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <ul className="ticks">{item.includes.map((point) => <li key={point}><svg viewBox="0 0 16 16" aria-hidden="true"><path d={tick} /></svg>{point}</li>)}</ul>
+            </li>
+          ))}
+        </ol>
       </Section>
-      <section className="image-split"><div className="image-split__image"><Image src={service.image} alt={`${service.name} infrastructure`} fill sizes="(max-width: 767px) 100vw, 50vw" /></div><div className="image-split__content"><div><h2>Integrated without unnecessary complexity.</h2><p className="lede">The goal is a maintainable environment with clear dependencies, appropriate control and a handover the operating team can use.</p></div></div></section>
-      <Section className="section section--dark">
-        <div className="section-heading"><div><h2>A disciplined path to deployment.</h2></div><p className="on-dark">Each engagement is adapted to the site and scope while following a clear technical sequence.</p></div>
-        <div className="process">{service.approach.map((item, index) => <article key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.description}</p></article>)}</div>
-      </Section>
+
       <Section className="section">
-        <div className="section-heading"><div><h2>Relevant operating environments.</h2></div><div className="related-links">{relatedIndustries.map((item) => <Link href={`/industries/${item.slug}`} key={item.slug}>{item.name}</Link>)}</div></div>
-        {relatedProjects.length > 0 && <><h3 className="subsection-title">Related deployments</h3><div className="project-grid">{relatedProjects.map((project) => <Link href={`/projects/${project.slug}`} key={project.slug} className="project-card"><div className="project-card__image"><Image src={project.image} alt={project.title} fill sizes="(max-width: 767px) 100vw, 50vw" /></div><small>{project.category}</small><h3>{project.title}</h3><p>{project.summary}</p></Link>)}</div></>}
+        <div className="capabilities">
+          <div>
+            <h2>Everything you <span className="accent">need</span></h2>
+            <p className="lede">Planned, installed and supported by one accountable team.</p>
+          </div>
+          <ul className="ticks ticks--large">{detail.capabilities.map((item) => <li key={item}><svg viewBox="0 0 16 16" aria-hidden="true"><path d={tick} /></svg>{item}</li>)}</ul>
+        </div>
       </Section>
-      {relatedArticles.length > 0 && <Section className="section section--paper"><div className="section-heading"><div><h2>Plan the system with more context.</h2></div><p>Practical guidance connected to this solution area.</p></div><div className="article-grid">{relatedArticles.map((article) => <Link href={`/blog/${article.slug}`} key={article.slug} className="article-card"><div className="article-card__image"><Image src={article.image} alt="" fill sizes="(max-width: 767px) 100vw, 33vw" /></div><div className="article-card__meta"><small>{article.category}</small><span>{article.readingTime}</span></div><h3>{article.title}</h3><p>{article.excerpt}</p></Link>)}</div></Section>}
-      <CTASection title={`Planning a ${service.shortName.toLowerCase()} project?`} />
+
+      <section className="section section--ink">
+        <div className="shell">
+          <div className="section-intro section-intro--center">
+            <p className="eyebrow">How we work</p>
+            <h2>From survey to <span className="accent">support</span></h2>
+          </div>
+          <ol className="steps">
+            {detail.process.map((step, index) => (
+              <li key={step.title}><span>0{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p></li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <Section className="section section--paper">
+        <div className="section-intro section-intro--center">
+          <h2>Industries we <span className="accent">serve</span></h2>
+          <p>{service.shortName} designed around how each sector operates.</p>
+        </div>
+        <div className="project-cards project-cards--four">
+          {servedIndustries.map((item) => <MediaCard key={item.slug} href={`/industries/${item.slug}`} image={item.image} alt={`${item.name} environment`} title={item.name} text={item.summary} />)}
+          {servedIndustries.length % 4 !== 0 && (
+            <div className="project-tile project-tile--note">
+              <h3>Different sector?</h3>
+              <p>We design around how your organisation works, whatever the sector.</p>
+              <Link href="/industries" className="text-link">See all industries</Link>
+            </div>
+          )}
+        </div>
+      </Section>
+
+      {brands.length > 0 && (
+        <Section className="section">
+          <div className="section-intro section-intro--center"><h2>Brands we <span className="accent">install</span></h2></div>
+          <ul className="brand-grid">
+            {brands.map(([name, src, width, height]) => {
+              const logoH = Math.round(Math.min(48, Math.max(26, Math.sqrt((3600 * height) / width))));
+              return <li key={name}><Image src={src} alt={name} width={Math.round((logoH * width) / height)} height={logoH} unoptimized={src.endsWith('.svg')} style={{ width: 'auto', height: logoH }} /></li>;
+            })}
+          </ul>
+        </Section>
+      )}
+
+      {relatedProjects.length > 0 && (
+        <section className="section section--ink">
+          <div className="shell">
+            <div className="section-intro section-intro--center"><p className="eyebrow">Projects</p><h2>{service.shortName} <span className="accent">in the field</span></h2></div>
+            <ProjectCarousel items={relatedProjects.map(({ slug, title, category, summary, image }) => ({ slug, title, category, summary, image }))} />
+          </div>
+        </section>
+      )}
+
+      <Section className="section">
+        <div className="faq-block">
+          <div>
+            <h2>Common <span className="accent">questions</span></h2>
+            <p className="lede">Anything else? Ask us on the chat or call {site.phones[0]}.</p>
+          </div>
+          <div className="faq-list">
+            {detail.faqs.map((faq) => (
+              <details key={faq.question}>
+                <summary>{faq.question}<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" /></svg></summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {relatedArticles.length > 0 && (
+        <Section className="section section--paper">
+          <div className="section-intro"><h2>Further <span className="accent">reading</span></h2></div>
+          <div className="article-grid">{relatedArticles.map((article) => <BlogCard key={article.slug} post={article} />)}</div>
+        </Section>
+      )}
+
+      <CTASection title={<>{detail.cta.title[0]}<span className="accent">{detail.cta.title[1]}</span>{detail.cta.title[2]}</>} text={detail.cta.text} link={detail.cta.link} image={ctaImages[service.slug as keyof typeof ctaImages] ?? ctaImages.solutions} />
     </>
   );
 }

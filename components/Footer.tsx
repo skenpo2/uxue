@@ -1,6 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { services, site } from '@/lib/site';
+import { industries, services, site } from '@/lib/site';
 
 // Official brand marks (Simple Icons), drawn in currentColor.
 const socials = [
@@ -17,20 +16,20 @@ const company = [
 
 export default function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer section--ink">
       <div className="shell">
         <div className="site-footer__grid">
-          <div className="site-footer__intro">
-            <Link href="/" className="site-footer__brand" aria-label="UXUE home">
-              <Image src="/images/orange-logo.svg" alt="UXUE Company Ltd" width={118} height={57} />
-            </Link>
-            <p>Security and technology infrastructure, integrated for the way your organisation works.</p>
+          <div className="site-footer__contact">
+            <h2>Contact</h2>
+            {site.phones.map((phone) => <a key={phone} href={`tel:${phone.replace(/\s/g, '')}`}>{phone}</a>)}
+            <a href={`mailto:${site.email}`}>{site.email}</a>
           </div>
           <nav aria-label="Footer solutions"><h2>Solutions</h2>{services.map((item) => <Link key={item.slug} href={`/solutions/${item.slug}`}>{item.shortName}</Link>)}</nav>
+          <nav aria-label="Footer industries"><h2>Industries</h2>{industries.slice(0, 5).map((item) => <Link key={item.slug} href={`/industries/${item.slug}`}>{item.name}</Link>)}<Link href="/industries">All industries</Link></nav>
           <nav aria-label="Footer company"><h2>Company</h2>{company.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}</nav>
         </div>
         <div className="site-footer__base">
-          <span>© {new Date().getFullYear()} {site.name}</span>
+          <span>© {new Date().getFullYear()} {site.name}. {site.address.join(', ')}.</span>
           <div className="site-footer__social">
             {socials.map((item) => (
               <a key={item.key} href={site.social[item.key]} target="_blank" rel="noreferrer" aria-label={item.label}>

@@ -1,16 +1,33 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import CTASection from '@/components/CTASection';
+import MediaCard from '@/components/MediaCard';
 import PageHero from '@/components/PageHero';
 import Section from '@/components/Section';
 import { industries } from '@/lib/site';
 import { pageMetadata } from '@/lib/metadata';
-import { heroImages, industryHeroImages } from '@/lib/hero-images';
+import { ctaImages } from '@/lib/cta';
 
-export const metadata = pageMetadata('Industries', 'Explore how UXUE security and ICT infrastructure supports corporate, financial, government, healthcare, education and industrial environments.', '/industries', heroImages.physicalSecurity.src);
+export const metadata = pageMetadata('Industries', 'How UXUE security and ICT infrastructure supports corporate, financial, government, healthcare, education, industrial, real estate and technology organisations.', '/industries', '/images/pages/industries-nairobi-skyline.jpg');
+
+const questions = [
+  ['Risk', 'What must be protected, detected or controlled?'],
+  ['Continuity', 'Which functions must stay available, and how fast must they recover?'],
+  ['People', 'Who uses the system, who manages it and who responds?'],
+  ['Lifecycle', 'How will the site grow, and how will the system be maintained?'],
+];
 
 export default function IndustriesPage() {
-  return <><PageHero title="Built around the way your sector operates." description="Effective infrastructure starts with the people, risks, facilities and continuity requirements unique to each environment." images={industryHeroImages} breadcrumbs={[{ label: 'Industries' }]} />
-    <Section className="section"><div className="section-heading"><div><h2>Different contexts. One disciplined approach.</h2></div><p>UXUE aligns physical security, connectivity and intelligent systems to the real workflows and constraints of the organisation.</p></div><div className="project-grid">{industries.map((industry) => <Link key={industry.slug} href={`/industries/${industry.slug}`} className="project-card"><div className="project-card__image"><Image src={industry.image} alt={`${industry.name} environment`} fill sizes="(max-width: 767px) 100vw, 50vw" /></div><small>Industry</small><h3>{industry.name}</h3><p>{industry.summary}</p></Link>)}</div></Section>
-    <Section className="section section--dark"><div className="section-heading"><div><h2>Risk, continuity, people and lifecycle.</h2></div><p className="on-dark">Technology is evaluated against the operation it must support.</p></div><div className="process">{[['Risk', 'What must be protected, detected or controlled?'], ['Continuity', 'Which functions must remain available and recoverable?'], ['People', 'Who uses, manages and responds to the system?'], ['Lifecycle', 'How will the environment grow, change and stay maintainable?']].map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></Section><CTASection /></>;
+  return (
+    <>
+      <PageHero title={<>Built around the way <span className="accent">your sector</span> operates.</>} description="The right system depends on the people, risks and facilities it has to serve." image={{ src: '/images/pages/industries-nairobi-skyline.jpg', alt: 'The Nairobi skyline under a cloudy sky.' }} breadcrumbs={[{ label: 'Industries' }]} />
+      <Section className="section">
+        <div className="section-intro section-intro--center"><h2>Sectors we <span className="accent">serve</span></h2></div>
+        <div className="project-cards project-cards--four">{industries.map((industry) => <MediaCard key={industry.slug} href={`/industries/${industry.slug}`} image={industry.image} alt={`${industry.name} environment`} title={industry.name} text={industry.summary} />)}</div>
+      </Section>
+      <Section className="section section--ink">
+        <div className="section-intro section-intro--center"><h2>Four questions we <span className="accent">ask first</span></h2></div>
+        <ol className="steps steps--four">{questions.map(([title, text], index) => <li key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol>
+      </Section>
+      <CTASection title={<>Infrastructure shaped around <span className="accent">your sector</span>.</>} text="Tell us how your organisation operates. We will show you how organisations like yours protect and connect their sites." link="Discuss your sector" image={ctaImages.industries} />
+    </>
+  );
 }

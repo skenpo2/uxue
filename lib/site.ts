@@ -41,7 +41,7 @@ export const services: Service[] = [
       'Integrated surveillance, access control, alarms and perimeter systems designed around each site.',
     description:
       'UXUE designs and deploys physical security infrastructure that helps organisations deter threats, detect events and manage access with clearer operational visibility.',
-    image: '/media/urban-surveillance.webp',
+    image: '/images/solutions/physical-security-intro.jpg',
     capabilities: [
       { title: 'IP video surveillance', description: 'High-resolution cameras, recording and intelligent video capabilities for critical zones.' },
       { title: 'Access control', description: 'Card, biometric and managed authentication for controlled movement through a facility.' },
@@ -64,8 +64,8 @@ export const services: Service[] = [
     summary:
       'Structured cabling, fibre, wireless networks and data-centre infrastructure built for dependable operations.',
     description:
-      'UXUE plans and implements the physical and active network layers that connect people, devices and sites—from structured cabling and fibre to routing, switching, wireless coverage and server-room infrastructure.',
-    image: '/media/network-engineer-installation.webp',
+      'UXUE plans and implements the physical and active network layers that connect people, devices and sites, from structured cabling and fibre to routing, switching, wireless coverage and server-room infrastructure.',
+    image: '/images/solutions/networking-intro.jpg',
     capabilities: [
       { title: 'Structured cabling and fibre', description: 'Copper and fibre infrastructure organised, labelled and designed for maintainability.' },
       { title: 'LAN, WAN and wireless', description: 'Wired and wireless environments planned around coverage, capacity and secure access.' },
@@ -89,7 +89,7 @@ export const services: Service[] = [
       'Visitor, gate, IoT and monitoring systems integrated to improve visibility and response.',
     description:
       'UXUE connects surveillance, access, alarms and operational devices so events can be monitored and managed from a clearer, more coordinated interface.',
-    image: '/media/access-control-reader.webp',
+    image: '/images/solutions/automation-intro.jpg',
     capabilities: [
       { title: 'Visitor management', description: 'Digital visitor workflows, access records and controlled arrival processes.' },
       { title: 'IoT monitoring', description: 'Dashboards that bring relevant device and environmental status into one view.' },
@@ -113,7 +113,7 @@ export const services: Service[] = [
       'Enterprise computing, server, storage, power and networking equipment supported by technical guidance.',
     description:
       'UXUE supports technology procurement from requirements assessment through equipment supply, configuration and integration with the existing environment.',
-    image: '/media/data-centre-aisle.webp',
+    image: '/images/solutions/ict-equipment-intro.jpg',
     capabilities: [
       { title: 'Computing equipment', description: 'Business workstations, laptops, desktops, thin clients and specialised systems.' },
       { title: 'Server and storage', description: 'Rack and tower servers, network-attached storage and backup infrastructure.' },
@@ -137,7 +137,7 @@ export const services: Service[] = [
       'Firewall, endpoint, cloud and assessment services aligned to the organisation’s technology environment.',
     description:
       'UXUE helps organisations identify weaknesses and introduce layered controls across networks, endpoints and cloud environments while keeping operational continuity in view.',
-    image: '/media/operations-monitoring.webp',
+    image: '/images/solutions/cybersecurity-operations.jpg',
     capabilities: [
       { title: 'Next-generation firewalls', description: 'Network controls with inspection, intrusion prevention and application-aware policy.' },
       { title: 'Cloud security', description: 'Configuration, hardening and security visibility for cloud environments.' },
@@ -165,13 +165,13 @@ export type Industry = {
 };
 
 export const industries: Industry[] = [
-  { slug: 'corporate', name: 'Corporate Enterprise', summary: 'Connected, controlled workplaces that support people without compromising operational visibility.', challenge: 'Corporate environments must coordinate access, networks, shared technology and multiple user groups across busy facilities.', image: '/images/m1.png', serviceSlugs: ['physical-security', 'networking', 'automation', 'ict-equipment', 'cybersecurity'], priorities: ['Controlled workplace access', 'Reliable user and device connectivity', 'Central visibility across business systems'] },
-  { slug: 'financial-services', name: 'Financial Services', summary: 'Layered physical and digital infrastructure for high-control, multi-site operating environments.', challenge: 'Financial organisations operate sensitive spaces and connected systems where access, traceability and continuity require careful coordination.', image: '/images/m2.png', serviceSlugs: ['physical-security', 'networking', 'automation', 'ict-equipment', 'cybersecurity'], priorities: ['Layered access and surveillance', 'Resilient connectivity between operational areas', 'Clear event records and central oversight'] },
-  { slug: 'government', name: 'Government', summary: 'Maintainable infrastructure for public institutions, administrative facilities and distributed operations.', challenge: 'Public-sector environments often combine high visitor volumes, controlled records, varied facilities and long infrastructure lifecycles.', image: '/images/m3.jpg', serviceSlugs: ['physical-security', 'networking', 'automation', 'ict-equipment', 'cybersecurity'], priorities: ['Practical visitor and access workflows', 'Documented, supportable infrastructure', 'Technology suited to the operating context'] },
-  { slug: 'healthcare', name: 'Healthcare', summary: 'Dependable infrastructure that supports controlled movement and always-on clinical operations.', challenge: 'Healthcare facilities need open access for care while protecting restricted areas, technology, staff and sensitive operations.', image: '/images/m4.jpg', serviceSlugs: ['physical-security', 'networking', 'automation', 'ict-equipment', 'cybersecurity'], priorities: ['Zoned access without operational friction', 'Coverage of critical and public areas', 'Reliable connectivity for staff and systems'] },
-  { slug: 'education', name: 'Education', summary: 'Campus-wide security and connectivity designed for diverse users, buildings and schedules.', challenge: 'Educational institutions combine large sites, many access points, changing populations and growing demand for connected learning.', image: '/images/schoolcctv.jpg', serviceSlugs: ['physical-security', 'networking', 'automation', 'ict-equipment', 'cybersecurity'], priorities: ['Campus visibility and controlled zones', 'Scalable wired and wireless coverage', 'Infrastructure that can grow by building or phase'] },
-  { slug: 'industrial', name: 'Industrial', summary: 'Rugged, integrated systems for facilities where safety, access and operational continuity intersect.', challenge: 'Industrial sites must control movement across perimeters and sensitive zones while supporting equipment, staff and logistics workflows.', image: '/images/project-install.png', serviceSlugs: ['physical-security', 'networking', 'automation', 'ict-equipment', 'cybersecurity'], priorities: ['Perimeter and vehicle control', 'Visibility across operational zones', 'Infrastructure planned around site conditions'] },
-  { slug: 'commercial-real-estate', name: 'Commercial Real Estate', summary: 'Coordinated building technology for owners, operators, tenants and visitors.', challenge: 'Multi-tenant properties need flexible access, shared network infrastructure and operational visibility without creating a fragmented user experience.', image: '/images/about-hero2.jpg', serviceSlugs: ['physical-security', 'networking', 'automation'], priorities: ['Tenant and visitor access workflows', 'Shared infrastructure with clear boundaries', 'Centralised building security visibility'] },
+  { slug: 'corporate', name: 'Corporate Enterprise', summary: 'Connected, controlled workplaces that support people without compromising operational visibility.', challenge: 'Corporate environments must coordinate access, networks, shared technology and multiple user groups across busy facilities.', image: '/images/industries/corporate.jpg', serviceSlugs: ['physical-security', 'networking', 'automation', 'ict-equipment', 'cybersecurity'], priorities: ['Controlled workplace access', 'Reliable user and device connectivity', 'Central visibility across business systems'] },
+  { slug: 'financial-services', name: 'Financial Services', summary: 'Layered physical and digital infrastructure for high-control, multi-site operating environments.', challenge: 'Financial organisations operate sensitive spaces and connected systems where access, traceability and continuity require careful coordination.', image: '/images/industries/financial-services.jpg', serviceSlugs: ['physical-security', 'networking', 'automation', 'ict-equipment', 'cybersecurity'], priorities: ['Layered access and surveillance', 'Resilient connectivity between operational areas', 'Clear event records and central oversight'] },
+  { slug: 'government', name: 'Government', summary: 'Maintainable infrastructure for public institutions, administrative facilities and distributed operations.', challenge: 'Public-sector environments often combine high visitor volumes, controlled records, varied facilities and long infrastructure lifecycles.', image: '/images/industries/government.jpg', serviceSlugs: ['physical-security', 'networking', 'automation', 'ict-equipment', 'cybersecurity'], priorities: ['Practical visitor and access workflows', 'Documented, supportable infrastructure', 'Technology suited to the operating context'] },
+  { slug: 'healthcare', name: 'Healthcare', summary: 'Dependable infrastructure that supports controlled movement and always-on clinical operations.', challenge: 'Healthcare facilities need open access for care while protecting restricted areas, technology, staff and sensitive operations.', image: '/images/industries/healthcare.jpg', serviceSlugs: ['physical-security', 'networking', 'automation', 'ict-equipment', 'cybersecurity'], priorities: ['Zoned access without operational friction', 'Coverage of critical and public areas', 'Reliable connectivity for staff and systems'] },
+  { slug: 'education', name: 'Education', summary: 'Campus-wide security and connectivity designed for diverse users, buildings and schedules.', challenge: 'Educational institutions combine large sites, many access points, changing populations and growing demand for connected learning.', image: '/images/industries/education.jpg', serviceSlugs: ['physical-security', 'networking', 'automation', 'ict-equipment', 'cybersecurity'], priorities: ['Campus visibility and controlled zones', 'Scalable wired and wireless coverage', 'Infrastructure that can grow by building or phase'] },
+  { slug: 'industrial', name: 'Industrial', summary: 'Rugged, integrated systems for facilities where safety, access and operational continuity intersect.', challenge: 'Industrial sites must control movement across perimeters and sensitive zones while supporting equipment, staff and logistics workflows.', image: '/images/industries/industrial.jpg', serviceSlugs: ['physical-security', 'networking', 'automation', 'ict-equipment', 'cybersecurity'], priorities: ['Perimeter and vehicle control', 'Visibility across operational zones', 'Infrastructure planned around site conditions'] },
+  { slug: 'commercial-real-estate', name: 'Commercial Real Estate', summary: 'Coordinated building technology for owners, operators, tenants and visitors.', challenge: 'Multi-tenant properties need flexible access, shared network infrastructure and operational visibility without creating a fragmented user experience.', image: '/images/industries/commercial-real-estate.jpg', serviceSlugs: ['physical-security', 'networking', 'automation'], priorities: ['Tenant and visitor access workflows', 'Shared infrastructure with clear boundaries', 'Centralised building security visibility'] },
   { slug: 'technology', name: 'Technology Companies', summary: 'High-capacity, secure foundations for teams and services that depend on continuous connectivity.', challenge: 'Technology-led organisations need dependable network, equipment and security layers that can change as their teams and systems evolve.', image: '/images/data-center.jpg', serviceSlugs: ['networking', 'ict-equipment', 'cybersecurity', 'physical-security'], priorities: ['Capacity and growth planning', 'Protected equipment and controlled technical spaces', 'Maintainable hardware and network architecture'] },
 ];
 
@@ -195,77 +195,87 @@ export const projects: Project[] = [
   {
     slug: 'corporate-office-security-deployment', title: 'Corporate Office Security Deployment', category: 'Physical Security',
     summary: 'A unified office security architecture combining IP surveillance, biometric access control and perimeter protection through central monitoring.',
-    challenge: 'The published portfolio describes a corporate headquarters that required coordinated protection across monitored areas, controlled access points and the site perimeter.',
+    challenge: 'A corporate headquarters needed coordinated protection across its offices, entry points and perimeter, with one place to see it all.',
     solution: 'UXUE brought the physical security layers into one architecture, combining high-definition IP surveillance, biometric access control and perimeter defence with central monitoring.',
     implementation: ['Planned surveillance coverage for the office environment', 'Introduced biometric control at managed access points', 'Connected perimeter protection to the wider security design', 'Configured central monitoring for a unified operational view'],
     technology: ['IP video surveillance', 'Biometric access control', 'Perimeter protection', 'Central monitoring'],
-    outcome: 'The disclosed project scope records a centrally managed environment for surveillance, access and perimeter protection. No client identity or measured performance result is published.',
+    outcome: 'Surveillance, access control and perimeter protection now run as one centrally managed system.',
     image: '/images/gallery/p19.jpg', gallery: ['/images/gallery/p5.jpg', '/images/gallery/n11.jpg', '/images/gallery/p2.jpg'], serviceSlugs: ['physical-security', 'automation'], industrySlugs: ['corporate'],
   },
   {
     slug: 'multi-branch-enterprise-networking', title: 'Multi-Branch Enterprise Networking', category: 'Network Infrastructure',
     summary: 'A wide-area network deployment designed to connect regional branches with managed connectivity and a dependable central backbone.',
-    challenge: 'The organisation needed regional branch offices to operate across a shared network environment without making each location an isolated technology island.',
+    challenge: 'Regional branch offices needed to work as one network rather than as isolated sites.',
     solution: 'UXUE engineered a wide-area network with managed branch connectivity, redundant internet connections and central administration around a dependable backbone.',
     implementation: ['Mapped the branch connectivity requirement', 'Established the wide-area network backbone', 'Introduced redundant internet connectivity', 'Centralised network visibility and management'],
     technology: ['Wide-area networking', 'Redundant internet links', 'Routing and switching', 'Central network management'],
-    outcome: 'The published scope confirms a centrally managed branch network with redundant connectivity. Availability figures, branch count and client identity are not disclosed.',
+    outcome: 'Every branch now shares one centrally managed network with redundant internet connectivity.',
     image: '/images/gallery/p12.jpg', gallery: ['/images/gallery/n8.jpg', '/images/gallery/n9.jpg', '/images/gallery/n10.jpg'], serviceSlugs: ['networking', 'ict-equipment'], industrySlugs: ['corporate', 'financial-services'],
   },
   {
     slug: 'data-centre-infrastructure-setup', title: 'Data Centre Infrastructure Setup', category: 'ICT Infrastructure',
     summary: 'A server-room build-out covering structured cabling, rack installation, UPS power distribution and environmental infrastructure.',
-    challenge: 'The project required the physical foundations of a server room to be coordinated as one maintainable environment rather than installed as unrelated equipment.',
-    solution: 'UXUE delivered the disclosed server-room scope across high-density structured cabling, rack hardware, primary and secondary UPS power distribution, and environmental cooling infrastructure.',
+    challenge: 'The server room needed cabling, racks, power and cooling planned as one maintainable environment, not installed piece by piece.',
+    solution: 'UXUE delivered the server room across high-density structured cabling, rack hardware, primary and secondary UPS power distribution, and environmental cooling infrastructure.',
     implementation: ['Installed and organised structured cabling', 'Deployed rack hardware and equipment pathways', 'Implemented primary and secondary UPS distribution', 'Coordinated environmental cooling infrastructure'],
     technology: ['Structured cabling', 'Rack infrastructure', 'UPS power distribution', 'Environmental cooling'],
-    outcome: 'The portfolio records a complete server-room infrastructure build-out. Capacity, facility location and measured operating results are not published.',
-    image: '/images/gallery/p5.jpg', gallery: ['/images/gallery/p2.jpg', '/images/gallery/p6.jpg', '/images/gallery/p13.jpg'], serviceSlugs: ['networking', 'ict-equipment'], industrySlugs: ['technology', 'corporate'],
+    outcome: 'A complete server room with organised cabling, protected power and controlled cooling, ready for equipment.',
+    image: '/images/gallery/p5.jpg', gallery: ['/images/gallery/p2.jpg', '/images/gallery/p6.jpg', '/images/gallery/p16.jpg'], serviceSlugs: ['networking', 'ict-equipment'], industrySlugs: ['technology', 'corporate'],
   },
   {
     slug: 'school-campus-surveillance-system', title: 'School Campus Surveillance System', category: 'Surveillance',
     summary: 'Campus-wide IP video surveillance covering entry points and priority zones with secure remote monitoring.',
-    challenge: 'The educational environment required surveillance coverage across a broad campus with distinct public, learning and entry areas.',
-    solution: 'UXUE installed an IP video surveillance network covering the disclosed priority zones, including classrooms, common areas and entry points, with secure remote monitoring.',
-    implementation: ['Planned coverage across the campus environment', 'Installed IP cameras at disclosed priority zones', 'Connected devices through the campus network', 'Enabled secure remote monitoring'],
+    challenge: 'A large campus needed reliable surveillance across entry points, classrooms and common areas.',
+    solution: 'UXUE installed an IP video surveillance network covering priority zones, including classrooms, common areas and entry points, with secure remote monitoring.',
+    implementation: ['Planned coverage across the campus environment', 'Installed IP cameras at priority zones', 'Connected devices through the campus network', 'Enabled secure remote monitoring'],
     technology: ['IP video surveillance', 'Video recording and management', 'Campus network connectivity', 'Remote monitoring'],
-    outcome: 'The published record confirms campus-wide monitoring across the identified zones. Camera quantities, institution identity and incident statistics are not disclosed.',
-    image: '/images/schoolcctv.jpg', gallery: ['/images/gallery/n1.jpeg', '/images/gallery/n2.jpeg', '/images/gallery/n3.jpg'], serviceSlugs: ['physical-security', 'networking'], industrySlugs: ['education'],
+    outcome: 'Priority zones across the campus are covered and can be viewed securely from a remote location.',
+    image: '/images/schoolcctv.jpg', gallery: ['/images/gallery/p9.jpg', '/images/gallery/n10.jpg'], serviceSlugs: ['physical-security', 'networking'], industrySlugs: ['education'],
   },
   {
     slug: 'cloud-migration-and-cybersecurity', title: 'Cloud Migration & Cybersecurity', category: 'Cybersecurity',
     summary: 'Security hardening, firewall deployment and endpoint monitoring introduced as part of an enterprise cloud transition.',
-    challenge: 'An enterprise cloud transition required security controls to be introduced alongside the infrastructure change rather than treated as a later activity.',
-    solution: 'UXUE supported the transition with security hardening, next-generation firewall deployment and continuous endpoint monitoring within the disclosed scope.',
+    challenge: 'An enterprise moving to the cloud needed security built into the transition rather than added later.',
+    solution: 'UXUE supported the transition with security hardening, next-generation firewall deployment and continuous endpoint monitoring.',
     implementation: ['Reviewed security requirements around the transition', 'Applied security hardening to the target environment', 'Deployed next-generation firewall controls', 'Introduced continuous endpoint monitoring'],
     technology: ['Cloud security hardening', 'Next-generation firewall', 'Endpoint protection', 'Security monitoring'],
-    outcome: 'The published scope confirms layered controls were introduced during the cloud transition. Platform names, client identity and measured security outcomes are not disclosed.',
-    image: '/images/cyber-project.jpg', gallery: ['/images/gallery/p10.jpg', '/images/gallery/p15.jpg'], serviceSlugs: ['cybersecurity', 'networking'], industrySlugs: ['corporate', 'technology'],
+    outcome: 'Layered security controls protected the new environment from the first day of the migration.',
+    image: '/images/cyber-project.jpg', gallery: ['/images/gallery/p15.jpg', '/images/gallery/p12.jpg', '/images/gallery/n10.jpg'], serviceSlugs: ['cybersecurity', 'networking'], industrySlugs: ['corporate', 'technology'],
   },
   {
     slug: 'industrial-facility-security-integration', title: 'Industrial Facility Security Integration', category: 'Security Automation',
     summary: 'Perimeter detection, vehicle barriers and employee access control brought together through a unified operational view.',
-    challenge: 'The manufacturing environment needed to coordinate perimeter events, logistics vehicle movement and employee access across one operational security approach.',
+    challenge: 'A manufacturing site needed perimeter events, vehicle movement and staff access managed together.',
     solution: 'UXUE integrated perimeter intrusion detection, automated logistics barriers and employee access control into a unified management view.',
     implementation: ['Established perimeter intrusion detection', 'Integrated automated barriers for logistics access', 'Connected employee access control', 'Configured a unified operational dashboard'],
     technology: ['Perimeter intrusion detection', 'Automated vehicle barriers', 'Employee access control', 'Unified security management'],
-    outcome: 'The disclosed record confirms the three security layers were brought into one management view. Site location, client identity and measured results are not published.',
+    outcome: 'Perimeter detection, vehicle barriers and staff access now report into one management view.',
     image: '/images/gallery/p17.jpg', gallery: ['/images/gallery/n6.jpg', '/images/gallery/n7.jpg', '/images/gallery/n8.jpg'], serviceSlugs: ['physical-security', 'automation', 'networking'], industrySlugs: ['industrial'],
   },
 ];
 
+// [name, logo, intrinsic width, intrinsic height]. Security and ICT brands alternate so the strip reads as one mix.
 export const technologyPartners = [
-  ['Cisco', '/images/brands/cisco.png'], ['Hanwha Techwin Wisenet', '/images/brands/hanwha.jpg'],
-  ['D-Link', '/images/brands/dlink.png'], ['Suprema', '/images/brands/suprema.png'],
-  ['Cathexis', '/images/brands/cathexis.png'], ['Rosslare', '/images/brands/rosslare.jpg'],
-  ['Huawei', '/images/brands/hua.png'], ['Impro', '/images/brands/impro.png'],
-  ['Ubiquiti', '/images/brands/ubiquiti.png'], ['ZKTeco', '/images/brands/zk.png'],
+  ['Cisco', '/images/brands/cisco.svg', 216, 114], ['Hikvision', '/images/brands/hikvision.svg', 159, 21],
+  ['Huawei', '/images/brands/huawei.png', 510, 142], ['Axis Communications', '/images/brands/axis.svg', 200, 72],
+  ['Fortinet', '/images/brands/fortinet.svg', 156, 19], ['Hanwha Vision', '/images/brands/hanwha-vision.svg', 180, 141],
+  ['Ubiquiti', '/images/brands/ubiquiti.svg', 530, 254], ['Suprema', '/images/brands/suprema.png', 1147, 160],
+  ['Dell Technologies', '/images/brands/dell-technologies.svg', 72, 9.2], ['Dahua Technology', '/images/brands/dahua.svg', 130, 40],
+  ['HPE Aruba Networking', '/images/brands/hpe-aruba.svg', 790, 180], ['ZKTeco', '/images/brands/zk.png', 195, 51],
+  ['D-Link', '/images/brands/dlink.svg', 1280, 384], ['Milestone Systems', '/images/brands/milestone.png', 184, 160],
+  ['APC by Schneider Electric', '/images/brands/apc.svg', 588, 280], ['Cathexis', '/images/brands/cathexis.png', 294, 129],
+  ['MikroTik', '/images/brands/mikrotik.svg', 1042, 180], ['HID', '/images/brands/hid.svg', 26.3, 10.5],
+  ['Rosslare', '/images/brands/rosslare.png', 225, 46], ['Impro', '/images/brands/impro.png', 274, 100],
 ] as const;
 
+// [name, logo, intrinsic width, intrinsic height]
 export const clientOrganisations = [
-  ['African Wildlife Foundation', '/images/partners/awf.png'], ['University of Nairobi', '/images/partners/uonbi.png'],
-  ['The National Treasury', '/images/partners/treasure.png'], ['Longhorn Publishers', '/images/partners/longhorn.png'],
-  ['Ivari Africa', '/images/partners/ivari.png'], ['KWUST', '/images/partners/kwust.png'],
+  ['The National Treasury', '/images/partners/national-treasury.png', 806, 200],
+  ['University of Nairobi', '/images/partners/university-of-nairobi.png', 291, 199],
+  ['African Wildlife Foundation', '/images/partners/african-wildlife-foundation.png', 418, 200],
+  ['Kiriri Women’s University of Science and Technology', '/images/partners/kiriri-university.png', 882, 200],
+  ['Longhorn Publishers', '/images/partners/longhorn-publishers.png', 342, 200],
+  ['Ivari Africa', '/images/partners/ivari.png', 592, 208],
 ] as const;
 
 export function getService(slug: string) { return services.find((item) => item.slug === slug); }

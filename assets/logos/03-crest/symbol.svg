@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><title>UXUE</title><defs><mask id="sm" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="96"><rect width="96" height="96" fill="#fff"/><path d="M12 4 L84 92 M84 4 L12 92" stroke="#000" stroke-width="4.6"/></mask><clipPath id="st"><path d="M0.55 -10 L95.45 -10 L48 48 Z"/></clipPath></defs><g mask="url(#sm)"><path d="M12 4 H84 V52 A36 36 0 0 1 12 52 Z" fill="#010066"/><path d="M12 4 H84 V52 A36 36 0 0 1 12 52 Z" fill="#FE941E" clip-path="url(#st)"/></g></svg>

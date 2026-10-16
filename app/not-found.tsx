@@ -7,7 +7,7 @@ export default function NotFound() {
         <div className="page-hero__content">
           <h1>This page could not be found.</h1>
           <p className="page-hero__lede">The link may be out of date, or the page may have moved. Everything we do is one click away from here.</p>
-          <div className="home-hero__actions">
+          <div className="hero-actions">
             <Link href="/" className="button button--orange">Back to home</Link>
             <Link href="/solutions" className="button button--outline">Explore solutions</Link>
           </div>

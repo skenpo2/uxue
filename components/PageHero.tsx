@@ -1,22 +1,32 @@
+import type { ReactNode } from 'react';
+import Image from 'next/image';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import HeroSlideshow from '@/components/HeroSlideshow';
 import type { HeroImage } from '@/lib/hero-images';
 
-export default function PageHero({ title, description, image, images, breadcrumbs }: { title: string; description: string; image?: string; images?: (string | HeroImage)[]; breadcrumbs?: { label: string; href?: string }[] }) {
-  const slides = (images && images.length > 0 ? images : image ? [image] : []).filter(Boolean);
+type Props = {
+  title: ReactNode;
+  description: string;
+  /** The banner photo. `images` is accepted for older callers; only its first entry is used. */
+  image?: string | HeroImage;
+  images?: (string | HeroImage)[];
+  breadcrumbs?: { label: string; href?: string }[];
+};
+
+// Inner-page hero: a rounded photo banner with a navy wash, breadcrumb, title and one short line.
+export default function PageHero({ title, description, image, images, breadcrumbs }: Props) {
+  const source = image ?? images?.[0];
+  const photo = typeof source === 'string' ? { src: source, alt: '' } : source;
   return (
-    <header className={`page-hero${slides.length === 0 ? ' page-hero--text-only' : ''}`}>
-      <div className="shell page-hero__layout">
-        <div className="page-hero__content">
-          {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
-          <h1>{title}</h1>
-          <p className="page-hero__lede">{description}</p>
-        </div>
-        {slides.length > 0 && (
-          <div className="page-hero__media">
-            <HeroSlideshow images={slides} label={title} className="page-hero__image" sizes="(max-width: 900px) calc(100vw - 40px), (max-width: 1440px) 48vw, 660px" />
+    <header className="page-banner">
+      <div className="shell">
+        <div className={`page-banner__frame${photo ? '' : ' page-banner__frame--plain'}`}>
+          {photo && <Image src={photo.src} alt={photo.alt} fill priority sizes="(max-width: 1320px) 100vw, 1280px" className="page-banner__image" style={photo.position ? { objectPosition: photo.position } : undefined} />}
+          <div className="page-banner__content">
+            {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
+            <h1>{title}</h1>
+            <p>{description}</p>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );
